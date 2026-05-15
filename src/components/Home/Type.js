@@ -9,7 +9,7 @@ function Type() {
           "Full Stack Web Developer",
           "Next.js and React Developer",
           "Node.js API Builder",
-          "CMS and SaaS Product Builder",
+          "CMS and AI Chatbot Builder",
         ],
         autoStart: true,
         loop: true,

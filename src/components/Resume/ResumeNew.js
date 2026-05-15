@@ -23,9 +23,10 @@ function ResumeNew() {
             </h1>
             <p className="resume-intro">
               Full Stack Web Developer with experience building Next.js, React,
-              Node.js, and database-driven applications for real business
-              operations. I enjoy shipping practical products that balance clean
-              UI, reliable backend workflows, and long-term maintainability.
+              Node.js, Python, and database-driven applications for real
+              business operations. I enjoy shipping practical products that
+              balance clean UI, reliable backend workflows, AI-assisted user
+              experiences, and long-term maintainability.
             </p>
             <div className="resume-actions">
               <Button variant="primary" href="mailto:migsnolimit26@gmail.com">
@@ -92,6 +93,29 @@ function ResumeNew() {
               </ul>
             </div>
 
+            <div className="resume-item">
+              <h4>Software Developer</h4>
+              <h5 className="resume-title">February 2022 - February 2024</h5>
+              <p>
+                <em>ExxonMobil Internship - Philippines - Remote</em>
+              </p>
+              <ul>
+                <li>
+                  Built an information and inquiry website with AI chatbot
+                  integration to answer basic to complex questions about oils
+                  and vehicles.
+                </li>
+                <li>
+                  Supported backend web development in Python, including
+                  Streamlit-based functionality for interactive user flows.
+                </li>
+                <li>
+                  Contributed to software design, product problem-solving, and
+                  delivery across a remote internship environment.
+                </li>
+              </ul>
+            </div>
+
             <h3 className="resume-title">Education</h3>
             <div className="resume-item">
               <h4>Bachelor of Science in Information Technology</h4>
@@ -109,11 +133,11 @@ function ResumeNew() {
               <ul>
                 <li>
                   Hands-on experience with Next.js, React, Node.js, and
-                  full-stack product delivery.
+                  Python across full-stack product delivery.
                 </li>
                 <li>
-                  Comfortable with APIs, NoSQL databases, PostgreSQL,
-                  Supabase, and third-party integrations.
+                  Comfortable with APIs, AI chatbot integrations, NoSQL
+                  databases, PostgreSQL, Supabase, and third-party services.
                 </li>
                 <li>
                   Interested in meaningful, challenging products where speed,
@@ -127,7 +151,7 @@ function ResumeNew() {
               <ul>
                 <li>Frontend development with responsive, performance-aware UI.</li>
                 <li>Backend workflows, admin systems, and business tooling.</li>
-                <li>Cloud-connected integrations, automation, and real-time data features.</li>
+                <li>AI chatbot experiences, automation, and cloud-connected integrations.</li>
                 <li>Independent execution and direct collaboration with founders or small teams.</li>
               </ul>
             </div>
@@ -170,6 +194,9 @@ function ResumeNew() {
                   >
                     <AiFillGithub /> GitHub Project
                   </a>
+                </li>
+                <li>
+                  MOBI Chatbot for ExxonMobil PH - private internship project
                 </li>
                 <li>
                   <a

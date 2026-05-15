@@ -1,8 +1,10 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import bitsOfCode from "../../Assets/Projects/blog.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import editor from "../../Assets/Projects/codeEditor.png";
+import state101Website from "../../Assets/Projects/State101Website.png";
+import customCms from "../../Assets/Projects/CustomCMS.png";
+import mobiChatbot from "../../Assets/Projects/Mobichatbot.png";
+import mobiChatbotAlt from "../../Assets/Projects/mobichatbot1.png";
+import mobilPhChatbot from "../../Assets/Projects/mobilphchatbot.png";
 import Particle from "../Particle";
 import ProjectCard from "./ProjectCards";
 
@@ -14,17 +16,19 @@ function Projects() {
         <h1 className="project-heading">
           Selected <strong className="purple">Work </strong>
         </h1>
-        <p style={{ color: "white" }}>
-          A mix of public launches and private product work from my recent full
-          stack experience.
+        <p className="project-intro">
+          A focused mix of public launch work, private admin tooling, and AI
+          chatbot product delivery across consultancy and internship experience.
         </p>
-        <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
+        <Row className="project-grid">
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={bitsOfCode}
+              imgPath={state101Website}
               isBlog={false}
               title="State101 Travel Website"
+              meta="Client Website | React | Next.js"
               description="A public-facing travel and visa assistance website built with a modern React and Next.js workflow. I focused on clean responsive UX, clear content structure, and a setup that supports ongoing business updates."
+              skills={["Responsive UI", "Content Architecture", "Frontend Delivery"]}
               ghLink="https://github.com/MIGSNOLIMIT/State101TravelWebsite"
               demoLink="https://state101-travel-website.vercel.app"
             />
@@ -32,20 +36,28 @@ function Projects() {
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={editor}
+              imgPath={customCms}
               isBlog={false}
               title="Custom CMS and Admin Dashboard"
+              meta="Internal Platform | Next.js | Prisma | PostgreSQL"
               description="Built a full-stack internal platform using Next.js, React, Prisma, PostgreSQL, and Supabase. The system included role-based access control, media management, rich text editing, audit logging, and editable branding and content modules."
-              demoLink="https://state101-travel-website.vercel.app"
+              skills={["Role-Based Access", "Media Management", "Audit Logging"]}
             />
           </Col>
 
           <Col md={4} className="project-card">
             <ProjectCard
-              imgPath={chatify}
+              imgPaths={[mobiChatbot, mobiChatbotAlt, mobilPhChatbot]}
               isBlog={false}
-              title="SaaS and Integration Work"
-              description="Alongside client-facing delivery, I have worked on SaaS-style features, chatbot flows, Google Sheets integrations, cloud-connected APIs, and real-time experiences. I enjoy shaping backend logic and frontend usability together so products stay fast and practical."
+              title="MOBI Chatbot for ExxonMobil PH"
+              meta="ExxonMobil Internship | Python | AI Chatbot"
+              description="Built an information and inquiry website with AI chatbot integration for ExxonMobil PH. The platform was designed to answer basic to complex questions about oils and vehicles while supporting a clearer digital customer experience."
+              skills={[
+                "AI Software Development",
+                "Back-End Web Development",
+                "Python",
+                "Streamlit Integration",
+              ]}
             />
           </Col>
         </Row>

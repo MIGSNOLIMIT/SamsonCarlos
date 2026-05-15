@@ -11,10 +11,11 @@ function AboutCard() {
             Hi, I am <span className="purple">Carlos Miguel Samson</span> from{" "}
             <span className="purple">Binangonan 1940, Rizal</span>.
             <br />
-            I recently worked as a{" "}
+            I worked as a{" "}
             <span className="purple">Full Stack Web Developer</span> at{" "}
             <span className="purple">STATE101 Visa Assistance Consultancy</span>
-            .
+            , and earlier as a <span className="purple">Software Developer</span>{" "}
+            intern with <span className="purple">ExxonMobil</span>.
             <br />I earned my{" "}
             <span className="purple">
               Bachelor of Science in Information Technology
@@ -32,7 +33,8 @@ function AboutCard() {
               tools
             </li>
             <li className="about-activity">
-              <ImPointRight /> Integrating APIs, databases, and cloud services
+              <ImPointRight /> Integrating APIs, databases, cloud services, and
+              AI chatbot flows
             </li>
             <li className="about-activity">
               <ImPointRight /> Designing fast, clean user experiences for web

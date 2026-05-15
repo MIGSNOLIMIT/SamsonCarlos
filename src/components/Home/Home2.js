@@ -15,15 +15,16 @@ function Home2() {
             <p className="home-about-body">
               I am Carlos Miguel Samson, a full stack developer with hands-on
               experience building modern web applications for real business
-              workflows.
+              workflows across client websites, internal systems, and AI
+              chatbot experiences.
               <br />
               <br />
               My day-to-day work includes
               <i>
                 <b className="purple">
                   {" "}
-                  Next.js, React, Node.js, API integrations, and CMS/admin
-                  tooling
+                  Next.js, React, Node.js, Python, API integrations, and
+                  CMS/admin tooling
                 </b>
               </i>
               , and I am comfortable owning both frontend and backend delivery.
@@ -33,8 +34,8 @@ function Home2() {
               <i>
                 <b className="purple">
                   {" "}
-                  SaaS-style platforms, chatbot features, performance-focused
-                  interfaces,
+                  AI chatbot features, performance-focused interfaces, custom
+                  dashboards,
                 </b>
               </i>
               and data-driven product experiences that help teams move faster.
@@ -47,7 +48,8 @@ function Home2() {
                   PostgreSQL, Supabase, NoSQL databases,
                 </b>
               </i>
-              and third-party services such as Google Sheets and cloud APIs.
+              and third-party services such as Google Sheets, cloud APIs, and
+              AI-assisted workflows.
             </p>
           </Col>
           <Col md={4} className="myAvtar">

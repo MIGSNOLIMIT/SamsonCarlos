@@ -10,23 +10,27 @@ import {
 import { CgWebsite } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 import Particle from "../Particle";
+import Reveal from "../Reveal";
 
 function ResumeNew() {
   return (
     <div>
       <Container fluid className="resume-section">
         <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
+        <Reveal
+          as={Row}
+          style={{ justifyContent: "center", position: "relative" }}
+        >
           <Col lg={8} className="text-center">
             <h1 className="project-heading">
               Resume and <strong className="purple">Contact</strong>
             </h1>
             <p className="resume-intro">
-              Full Stack Web Developer with experience building Next.js, React,
-              Node.js, Python, and database-driven applications for real
-              business operations. I enjoy shipping practical products that
-              balance clean UI, reliable backend workflows, AI-assisted user
-              experiences, and long-term maintainability.
+              Full Stack Web Developer with 4 years of experience building
+              Next.js, React, Node.js, Python, and database-driven applications
+              for real business operations. I enjoy shipping practical products
+              that balance clean UI, reliable backend workflows, AI-assisted
+              user experiences, and long-term maintainability.
             </p>
             <div className="resume-actions">
               <Button variant="primary" href="mailto:migsnolimit26@gmail.com">
@@ -66,12 +70,14 @@ function ResumeNew() {
               </Button>
             </div>
           </Col>
-        </Row>
+        </Reveal>
 
         <Row className="resume">
           <Col md={6} className="resume-left">
-            <h3 className="resume-title">Experience</h3>
-            <div className="resume-item">
+            <Reveal delay={40}>
+              <h3 className="resume-title">Experience</h3>
+            </Reveal>
+            <Reveal className="resume-item" delay={100} direction="left">
               <h4>Full Stack Web Developer</h4>
               <h5 className="resume-title">March 2024 - April 2026</h5>
               <p>
@@ -91,9 +97,9 @@ function ResumeNew() {
                   could manage website updates without developer bottlenecks.
                 </li>
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="resume-item">
+            <Reveal className="resume-item" delay={220} direction="left">
               <h4>Software Developer</h4>
               <h5 className="resume-title">February 2022 - February 2024</h5>
               <p>
@@ -114,26 +120,30 @@ function ResumeNew() {
                   delivery across a remote internship environment.
                 </li>
               </ul>
-            </div>
+            </Reveal>
 
-            <h3 className="resume-title">Education</h3>
-            <div className="resume-item">
+            <Reveal delay={60}>
+              <h3 className="resume-title">Education</h3>
+            </Reveal>
+            <Reveal className="resume-item" delay={320} direction="left">
               <h4>Bachelor of Science in Information Technology</h4>
               <h5 className="resume-title">January 2022 - January 2026</h5>
               <p>
                 <em>STI College - Pasig</em>
               </p>
-            </div>
+            </Reveal>
           </Col>
 
           <Col md={6} className="resume-right">
-            <h3 className="resume-title">Profile Snapshot</h3>
-            <div className="resume-item">
+            <Reveal delay={80}>
+              <h3 className="resume-title">Profile Snapshot</h3>
+            </Reveal>
+            <Reveal className="resume-item" delay={120} direction="right">
               <h4>Summary</h4>
               <ul>
                 <li>
-                  Hands-on experience with Next.js, React, Node.js, and
-                  Python across full-stack product delivery.
+                  4 years of hands-on experience with Next.js, React, Node.js,
+                  and Python across full-stack product delivery.
                 </li>
                 <li>
                   Comfortable with APIs, AI chatbot integrations, NoSQL
@@ -144,9 +154,9 @@ function ResumeNew() {
                   clarity, and ownership matter.
                 </li>
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="resume-item">
+            <Reveal className="resume-item" delay={220} direction="right">
               <h4>Core Strengths</h4>
               <ul>
                 <li>Frontend development with responsive, performance-aware UI.</li>
@@ -154,9 +164,13 @@ function ResumeNew() {
                 <li>AI chatbot experiences, automation, and cloud-connected integrations.</li>
                 <li>Independent execution and direct collaboration with founders or small teams.</li>
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="resume-item resume-contact">
+            <Reveal
+              className="resume-item resume-contact"
+              delay={320}
+              direction="right"
+            >
               <h4>Contact</h4>
               <ul>
                 <li>Carlos Miguel Samson</li>
@@ -172,9 +186,9 @@ function ResumeNew() {
                 <li>English - Expert</li>
                 <li>Willing to relocate anywhere</li>
               </ul>
-            </div>
+            </Reveal>
 
-            <div className="resume-item">
+            <Reveal className="resume-item" delay={420} direction="right">
               <h4>Links</h4>
               <ul>
                 <li>
@@ -208,7 +222,7 @@ function ResumeNew() {
                   </a>
                 </li>
               </ul>
-            </div>
+            </Reveal>
           </Col>
         </Row>
       </Container>

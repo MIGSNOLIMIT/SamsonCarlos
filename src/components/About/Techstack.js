@@ -11,58 +11,75 @@ import SQL from "../../Assets/TechIcons/SQL.svg";
 import Tailwind from "../../Assets/TechIcons/Tailwind.svg";
 import MUI from "../../Assets/TechIcons/MUI.svg";
 import Postman from "../../Assets/TechIcons/Postman.svg";
+import Reveal from "../Reveal";
 
 function Techstack() {
+  const skills = [
+    {
+      icon: <SiNextdotjs fontSize={"24px"} />,
+      label: "Next.js",
+    },
+    {
+      icon: <img src={Javascript} alt="javascript" className="tech-icon-images" />,
+      label: "JavaScript",
+    },
+    {
+      icon: <img src={Typescript} alt="typescript" className="tech-icon-images" />,
+      label: "TypeScript",
+    },
+    {
+      icon: <img src={Node} alt="node" className="tech-icon-images" />,
+      label: "Node.js",
+    },
+    {
+      icon: <img src={ReactIcon} alt="react" className="tech-icon-images" />,
+      label: "React.js",
+    },
+    {
+      icon: <img src={SQL} alt="postgresql" className="tech-icon-images" />,
+      label: "PostgreSQL",
+    },
+    {
+      icon: <img src={SQL} alt="supabase" className="tech-icon-images" />,
+      label: "Supabase",
+    },
+    {
+      icon: <img src={Mongo} alt="nosql databases" className="tech-icon-images" />,
+      label: "NoSQL Databases",
+    },
+    {
+      icon: <img src={Tailwind} alt="tailwind" className="tech-icon-images" />,
+      label: "Tailwind CSS",
+    },
+    {
+      icon: <img src={MUI} alt="material ui" className="tech-icon-images" />,
+      label: "Material UI",
+    },
+    {
+      icon: <img src={Git} alt="git" className="tech-icon-images" />,
+      label: "Git",
+    },
+    {
+      icon: <img src={Postman} alt="postman" className="tech-icon-images" />,
+      label: "Postman",
+    },
+  ];
+
   return (
     <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiNextdotjs fontSize={"24px"} />
-        <div className="tech-icons-text">Next.js</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Javascript} alt="javascript" />
-        <div className="tech-icons-text">JavaScript</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Typescript} alt="typescript" />
-        <div className="tech-icons-text">TypeScript</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Node} alt="node" />
-        <div className="tech-icons-text">Node.js</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={ReactIcon} alt="react" />
-        <div className="tech-icons-text">React.js</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={SQL} alt="postgresql" />
-        <div className="tech-icons-text">PostgreSQL</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={SQL} alt="supabase" />
-        <div className="tech-icons-text">Supabase</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Mongo} alt="nosql databases" />
-        <div className="tech-icons-text">NoSQL Databases</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Tailwind} alt="tailwind" />
-        <div className="tech-icons-text">Tailwind CSS</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={MUI} alt="material ui" />
-        <div className="tech-icons-text">Material UI</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Git} alt="git" />
-        <div className="tech-icons-text">Git</div>
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <img src={Postman} alt="postman" />
-        <div className="tech-icons-text">Postman</div>
-      </Col>
+      {skills.map((skill, index) => (
+        <Reveal
+          as={Col}
+          xs={6}
+          md={2}
+          className="tech-icons"
+          key={skill.label}
+          delay={index * 55}
+        >
+          {skill.icon}
+          <div className="tech-icons-text">{skill.label}</div>
+        </Reveal>
+      ))}
     </Row>
   );
 }

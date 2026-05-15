@@ -5,9 +5,6 @@ import { CgWebsite } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
-  let date = new Date();
-  let year = date.getFullYear();
-
   return (
     <Container fluid className="footer">
       <Row>
@@ -15,7 +12,7 @@ function Footer() {
           <h3>Designed and developed by Carlos Miguel Samson</h3>
         </Col>
         <Col md="4" className="footer-copywright">
-          <h3>Copyright (c) {year} Carlos Miguel Samson</h3>
+          <h3>Copyright (c) 2022 Carlos Miguel Samson</h3>
         </Col>
         <Col md="4" className="footer-body">
           <ul className="footer-icons">

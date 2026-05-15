@@ -13,10 +13,11 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I am Carlos Miguel Samson, a full stack developer with hands-on
-              experience building modern web applications for real business
-              workflows across client websites, internal systems, and AI
-              chatbot experiences.
+              I am Carlos Miguel Samson, a full stack developer with
+              <span className="purple"> 4 years of hands-on experience </span>
+              building modern web applications for real business workflows
+              across client websites, internal systems, and AI chatbot
+              experiences.
               <br />
               <br />
               My day-to-day work includes

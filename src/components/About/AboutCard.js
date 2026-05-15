@@ -9,7 +9,10 @@ function AboutCard() {
         <blockquote className="blockquote mb-0">
           <p style={{ textAlign: "justify" }}>
             Hi, I am <span className="purple">Carlos Miguel Samson</span> from{" "}
-            <span className="purple">Binangonan 1940, Rizal</span>.
+            <span className="purple">Binangonan, Rizal, Philippines</span>.
+            <br />
+            I bring <span className="purple">4 years of hands-on experience</span>{" "}
+            building web products for business and customer-facing workflows.
             <br />
             I worked as a{" "}
             <span className="purple">Full Stack Web Developer</span> at{" "}
@@ -41,8 +44,8 @@ function AboutCard() {
               products
             </li>
             <li className="about-activity">
-              <ImPointRight /> Open to relocation and collaborative product
-              teams
+              <ImPointRight /> Open to relocation and remote collaborative product
+              teams 
             </li>
           </ul>
 

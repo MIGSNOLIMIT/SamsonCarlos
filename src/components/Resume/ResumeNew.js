@@ -100,6 +100,31 @@ function ResumeNew() {
             </Reveal>
 
             <Reveal className="resume-item" delay={220} direction="left">
+              <h4>Freelance Web Developer</h4>
+              <h5 className="resume-title">March 2025 - June 2025</h5>
+              <p>
+                <em>Lindela Travel and Tours - Remote Contract</em>
+              </p>
+              <ul>
+                <li>
+                  Delivered a public-facing travel services website that
+                  presented tours, flights, and visa assistance in a clearer
+                  and more conversion-friendly way.
+                </li>
+                <li>
+                  Improved homepage structure, service-page clarity, and
+                  responsive behavior to support a more trustworthy browsing
+                  experience across devices.
+                </li>
+                <li>
+                  Helped strengthen the client&apos;s online presence with a
+                  cleaner inquiry journey suited for a travel and visa-focused
+                  audience.
+                </li>
+              </ul>
+            </Reveal>
+
+            <Reveal className="resume-item" delay={300} direction="left">
               <h4>Software Developer</h4>
               <h5 className="resume-title">February 2022 - February 2024</h5>
               <p>
@@ -125,7 +150,7 @@ function ResumeNew() {
             <Reveal delay={60}>
               <h3 className="resume-title">Education</h3>
             </Reveal>
-            <Reveal className="resume-item" delay={320} direction="left">
+            <Reveal className="resume-item" delay={400} direction="left">
               <h4>Bachelor of Science in Information Technology</h4>
               <h5 className="resume-title">January 2022 - January 2026</h5>
               <p>
@@ -198,6 +223,15 @@ function ResumeNew() {
                     rel="noreferrer"
                   >
                     <CgWebsite /> State101 Travel Website
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://lindelatravel.com/travel_lite/public/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <CgWebsite /> Lindela Travel Website
                   </a>
                 </li>
                 <li>

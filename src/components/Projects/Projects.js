@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import state101Website from "../../Assets/Projects/State101Website.png";
 import customCms from "../../Assets/Projects/CustomCMS.png";
+import lindelaHomepage from "../../Assets/Projects/Lindela homepage.png";
 import mobiChatbot from "../../Assets/Projects/Mobichatbot.png";
 import mobiChatbotAlt from "../../Assets/Projects/mobichatbot1.png";
 import mobilPhChatbot from "../../Assets/Projects/mobilphchatbot.png";
@@ -19,7 +20,8 @@ function Projects() {
         </h1>
         <p className="project-intro">
           A focused mix of public launch work, private admin tooling, and AI
-          chatbot product delivery across consultancy and internship experience.
+          chatbot product delivery across freelance, consultancy, and
+          internship experience.
         </p>
         <Row className="project-grid">
           <Reveal as={Col} md={4} className="project-card" delay={80}>
@@ -75,6 +77,36 @@ function Projects() {
           </Reveal>
 
           <Reveal as={Col} md={4} className="project-card" delay={280}>
+            <ProjectCard
+              imgPath={lindelaHomepage}
+              isBlog={false}
+              title="Lindela Travel Website"
+              meta="Freelance | Travel Services Website | Responsive UX"
+              description="Delivered a freelance public-facing website for a travel and visa services brand, with clearer service presentation, stronger homepage structure, and a smoother inquiry path for users exploring tours, flights, and visa assistance."
+              outcomes={[
+                {
+                  label: "Problem",
+                  text: "The client needed a more polished online presence that organized multiple travel services clearly and made it easier for visitors to understand offers and inquire with confidence.",
+                },
+                {
+                  label: "Built",
+                  text: "A responsive marketing website with improved homepage hierarchy, service-focused sections, and clearer calls to action for tours, flights, and visa-related inquiries.",
+                },
+                {
+                  label: "Impact",
+                  text: "Gave the business a more credible digital storefront and made the customer journey feel simpler for users comparing services or planning their next trip.",
+                },
+              ]}
+              skills={[
+                "Responsive UI",
+                "Service Page Structure",
+                "Marketing Website Delivery",
+              ]}
+              demoLink="https://lindelatravel.com/travel_lite/public/"
+            />
+          </Reveal>
+
+          <Reveal as={Col} md={4} className="project-card" delay={380}>
             <ProjectCard
               imgPaths={[mobiChatbot, mobiChatbotAlt, mobilPhChatbot]}
               isBlog={false}

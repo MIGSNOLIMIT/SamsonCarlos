@@ -11,6 +11,7 @@ import { CgWebsite } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 import Particle from "../Particle";
 import Reveal from "../Reveal";
+import resumePdf from "../../Assets/Resume/Resume v1.pdf";
 
 function ResumeNew() {
   return (
@@ -52,12 +53,11 @@ function ResumeNew() {
               </Button>
               <Button
                 variant="primary"
-                href="https://bold.pro/my/carlos-miguelsamson-260422144939"
-                target="_blank"
-                rel="noreferrer"
+                href={resumePdf}
+                download="Carlos-Miguel-Samson-Resume.pdf"
               >
                 <AiOutlineDownload />
-                &nbsp;View Resume
+                &nbsp;Download Resume
               </Button>
               <Button
                 variant="primary"
@@ -245,6 +245,11 @@ function ResumeNew() {
                 </li>
                 <li>
                   MOBI Chatbot for ExxonMobil PH - private internship project
+                </li>
+                <li>
+                  <a href={resumePdf} download="Carlos-Miguel-Samson-Resume.pdf">
+                    <AiOutlineDownload /> Download PDF Resume
+                  </a>
                 </li>
                 <li>
                   <a

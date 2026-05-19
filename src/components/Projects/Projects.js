@@ -1,6 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import state101Website from "../../Assets/Projects/State101Website.png";
+import state101AiChatbot from "../../Assets/Projects/State101AIchatbot.png";
+import state101AiChatbotAlt from "../../Assets/Projects/State101AIchatbot1.png";
 import customCms from "../../Assets/Projects/CustomCMS.png";
 import lindelaHomepage from "../../Assets/Projects/Lindela homepage.png";
 import mobiChatbot from "../../Assets/Projects/Mobichatbot.png";
@@ -53,6 +55,38 @@ function Projects() {
 
           <Reveal as={Col} md={4} className="project-card" delay={180}>
             <ProjectCard
+              imgPaths={[state101AiChatbot, state101AiChatbotAlt]}
+              isBlog={false}
+              title="State101 Travel AI Assistant Platform"
+              meta="Full Stack AI Developer | Python | Streamlit | Groq API"
+              description="Built a lightweight AI SaaS-style chatbot platform for State101 Travel to handle customer questions outside office hours. The assistant uses company knowledge base content to answer common travel and visa inquiries through a fast Streamlit-based experience."
+              outcomes={[
+                {
+                  label: "Problem",
+                  text: "The company was receiving inquiries outside office hours and could miss potential customers when no one was available to respond right away.",
+                },
+                {
+                  label: "Built",
+                  text: "An AI travel and visa assistant with LLM-powered conversational flows, intelligent search, Streamlit UI, Groq API integration, and cloud-connected company data workflows.",
+                },
+                {
+                  label: "Impact",
+                  text: "Helped the business respond to after-hours questions with consistent answers from the company knowledge base, reducing missed inquiries and improving support availability.",
+                },
+              ]}
+              skills={[
+                "LLM Integration",
+                "Knowledge Base Search",
+                "Google Sheets API",
+                "Streamlit Delivery",
+              ]}
+              ghLink="https://github.com/MIGSNOLIMIT/State101Travel-AI-Chatbot"
+              demoLink="https://state101travel-ai-chatbot.streamlit.app"
+            />
+          </Reveal>
+
+          <Reveal as={Col} md={4} className="project-card" delay={280}>
+            <ProjectCard
               imgPath={customCms}
               isBlog={false}
               title="Custom CMS and Admin Dashboard"
@@ -76,7 +110,7 @@ function Projects() {
             />
           </Reveal>
 
-          <Reveal as={Col} md={4} className="project-card" delay={280}>
+          <Reveal as={Col} md={4} className="project-card" delay={380}>
             <ProjectCard
               imgPath={lindelaHomepage}
               isBlog={false}
@@ -106,7 +140,7 @@ function Projects() {
             />
           </Reveal>
 
-          <Reveal as={Col} md={4} className="project-card" delay={380}>
+          <Reveal as={Col} md={4} className="project-card" delay={480}>
             <ProjectCard
               imgPaths={[mobiChatbot, mobiChatbotAlt, mobilPhChatbot]}
               isBlog={false}
@@ -133,6 +167,8 @@ function Projects() {
                 "Python",
                 "Streamlit Integration",
               ]}
+              ghLink="https://github.com/MIGSNOLIMIT/ExxonMobil1Ph-AI-Chatbot"
+              demoLink="https://exxonmobil1ph-ai-chatbot-mobi.streamlit.app"
             />
           </Reveal>
         </Row>

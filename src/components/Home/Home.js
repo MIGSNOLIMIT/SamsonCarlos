@@ -6,6 +6,7 @@ import { CgFileDocument, CgWebsite } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import homeLogo from "../../Assets/home-main.png";
+import resumePdf from "../../Assets/Resume/Resume v1.pdf";
 import Particle from "../Particle";
 import Reveal from "../Reveal";
 import Home2 from "./Home2";
@@ -72,6 +73,14 @@ function Home() {
                   <Button as={Link} to="/resume" variant="primary">
                     <CgFileDocument />
                     &nbsp;View Resume
+                  </Button>
+                  <Button
+                    variant="primary"
+                    href={resumePdf}
+                    download="Carlos-Miguel-Samson-Resume.pdf"
+                  >
+                    <CgFileDocument />
+                    &nbsp;Download Resume
                   </Button>
                 </div>
               </Reveal>

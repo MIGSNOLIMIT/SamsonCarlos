@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { ImPointRight } from "react-icons/im";
+import { siteConfig } from "../../content/siteContent";
 
 function AboutCard() {
   return (
@@ -44,8 +45,9 @@ function AboutCard() {
               products
             </li>
             <li className="about-activity">
-              <ImPointRight /> Open to relocation and remote collaborative product
-              teams 
+              <ImPointRight /> Open to full-time, freelance, and project-based
+              work, with remote, hybrid, and on-site options. {siteConfig.workRegion}.{" "}
+              {siteConfig.relocation}
             </li>
           </ul>
 

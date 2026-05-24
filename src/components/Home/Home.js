@@ -31,6 +31,7 @@ function Home() {
     "PostgreSQL",
     "AI Chatbots",
   ];
+  const hiringBadges = [...siteConfig.availability, ...siteConfig.workModes];
   const homeSchema = [
     createWebsiteSchema(),
     createPersonSchema(),
@@ -99,6 +100,32 @@ function Home() {
               </Reveal>
 
               <Reveal delay={480}>
+                <div className="hero-hiring-card">
+                  <p className="hero-hiring-kicker">Open to Opportunities</p>
+                  <h2 className="hero-hiring-title">
+                    Available for full-time, freelance, and project-based work
+                  </h2>
+                  <p className="hero-hiring-copy">
+                    Preferred roles: {siteConfig.preferredRoles.join(", ")}.
+                  </p>
+                  <div className="hero-hiring-pill-list">
+                    {hiringBadges.map((item) => (
+                      <span key={item} className="hero-hiring-pill">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="hero-hiring-note">
+                    {siteConfig.workRegion}. {siteConfig.relocation}.
+                  </p>
+                  <Button variant="primary" href={`mailto:${siteConfig.email}`}>
+                    <AiOutlineMail />
+                    &nbsp;Email Me About a Role
+                  </Button>
+                </div>
+              </Reveal>
+
+              <Reveal delay={540}>
                 <div className="hero-actions">
                   <Button as={Link} to="/projects" variant="primary">
                     <AiOutlineFundProjectionScreen />
@@ -123,7 +150,7 @@ function Home() {
                 </div>
               </Reveal>
 
-              <Reveal delay={560}>
+              <Reveal delay={620}>
                 <div className="hero-tech-strip">
                   <p className="hero-tech-label">Tech I use most</p>
                   <div className="hero-tech-list">
@@ -271,16 +298,6 @@ function Home() {
                   className="icon-colour home-social-icons"
                 >
                   <AiOutlineMail />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://bold.pro/my/carlos-miguelsamson-260422144939"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour home-social-icons"
-                >
-                  <CgWebsite />
                 </a>
               </li>
             </ul>

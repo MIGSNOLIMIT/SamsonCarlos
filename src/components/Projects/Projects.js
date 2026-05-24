@@ -25,6 +25,36 @@ import {
 } from "../../content/siteContent";
 
 function Projects() {
+  const projectMedia = {
+    "project-state101-website": {
+      imgPath: state101Website,
+      caseStudyLink: "/engineering/react-travel-website-conversion-ux",
+      ghLink: "https://github.com/MIGSNOLIMIT/State101TravelWebsite",
+      demoLink: "https://state101-travel-website.vercel.app",
+    },
+    "project-state101-ai": {
+      imgPaths: [state101AiChatbot, state101AiChatbotAlt],
+      caseStudyLink: "/case-studies/state101-travel-ai-assistant",
+      ghLink: "https://github.com/MIGSNOLIMIT/State101Travel-AI-Chatbot",
+      demoLink: "https://state101travel-ai-chatbot.streamlit.app",
+    },
+    "project-custom-cms": {
+      imgPath: customCms,
+      caseStudyLink: "/case-studies/custom-cms-admin-dashboard",
+    },
+    "project-lindela-website": {
+      imgPath: lindelaHomepage,
+      caseStudyLink: "/engineering/react-travel-website-conversion-ux",
+      demoLink: "https://lindelatravel.com/travel_lite/public/",
+    },
+    "project-exxonmobil-ai": {
+      imgPaths: [mobiChatbot, mobiChatbotAlt, mobilPhChatbot],
+      caseStudyLink: "/case-studies/exxonmobil-ai-chatbot",
+      ghLink: "https://github.com/MIGSNOLIMIT/ExxonMobil1Ph-AI-Chatbot",
+      demoLink: "https://exxonmobil1ph-ai-chatbot-mobi.streamlit.app",
+    },
+  };
+
   const projectsSchema = [
     createWebsiteSchema(),
     createPersonSchema(),
@@ -70,163 +100,40 @@ function Projects() {
             Selected <strong className="purple">Work </strong>
           </h1>
           <p className="project-intro">
-            This page acts as the projects pillar in the site&apos;s SEO structure.
-            It connects live portfolio work to deeper case studies, engineering
-            breakdowns, and blog content so each project contributes to a larger
-            topic authority system.
+            These are the projects I would want a recruiter, client, or hiring
+            manager to open first. Each card makes the role, ownership, stack,
+            constraint, and result explicit so the work is easier to evaluate quickly.
           </p>
           <Row className="project-grid">
-          <Reveal as={Col} md={4} className="project-card" delay={80}>
-            <ProjectCard
-              imgPath={state101Website}
-              isBlog={false}
-              title="State101 Travel Website"
-              meta="Client Website | React | Next.js"
-              description="A public-facing travel and visa assistance website built with a modern React and Next.js workflow. I focused on clean responsive UX, clear content structure, and a setup that supports ongoing business updates."
-              outcomes={[
-                {
-                  label: "Problem",
-                  text: "The consultancy needed a clearer public-facing website that explained services well and felt trustworthy on mobile and desktop.",
-                },
-                {
-                  label: "Built",
-                  text: "A responsive React and Next.js website with cleaner page structure, easier navigation, and business-focused content sections.",
-                },
-                {
-                  label: "Impact",
-                  text: "Strengthened the company's online presence and made the inquiry journey easier for potential clients.",
-                },
-              ]}
-              skills={["Responsive UI", "Content Architecture", "Frontend Delivery"]}
-              caseStudyLink="/engineering/react-travel-website-conversion-ux"
-              ghLink="https://github.com/MIGSNOLIMIT/State101TravelWebsite"
-              demoLink="https://state101-travel-website.vercel.app"
-            />
-          </Reveal>
+            {projectEntities.map((project, index) => {
+              const media = projectMedia[project.id] || {};
 
-          <Reveal as={Col} md={4} className="project-card" delay={180}>
-            <ProjectCard
-              imgPaths={[state101AiChatbot, state101AiChatbotAlt]}
-              isBlog={false}
-              title="State101 Travel AI Assistant Platform"
-              meta="Full Stack AI Developer | Python | Streamlit | Groq API"
-              description="Built a lightweight AI SaaS-style chatbot platform for State101 Travel to handle customer questions outside office hours. The assistant uses company knowledge base content to answer common travel and visa inquiries through a fast Streamlit-based experience."
-              outcomes={[
-                {
-                  label: "Problem",
-                  text: "The company was receiving inquiries outside office hours and could miss potential customers when no one was available to respond right away.",
-                },
-                {
-                  label: "Built",
-                  text: "An AI travel and visa assistant with LLM-powered conversational flows, intelligent search, Streamlit UI, Groq API integration, and cloud-connected company data workflows.",
-                },
-                {
-                  label: "Impact",
-                  text: "Helped the business respond to after-hours questions with consistent answers from the company knowledge base, reducing missed inquiries and improving support availability.",
-                },
-              ]}
-              skills={[
-                "LLM Integration",
-                "Knowledge Base Search",
-                "Google Sheets API",
-                "Streamlit Delivery",
-              ]}
-              caseStudyLink="/case-studies/state101-travel-ai-assistant"
-              ghLink="https://github.com/MIGSNOLIMIT/State101Travel-AI-Chatbot"
-              demoLink="https://state101travel-ai-chatbot.streamlit.app"
-            />
-          </Reveal>
-
-          <Reveal as={Col} md={4} className="project-card" delay={280}>
-            <ProjectCard
-              imgPath={customCms}
-              isBlog={false}
-              title="Custom CMS and Admin Dashboard"
-              meta="Internal Platform | Next.js | Prisma | PostgreSQL"
-              description="Built a full-stack internal platform using Next.js, React, Prisma, PostgreSQL, and Supabase. The system included role-based access control, media management, rich text editing, audit logging, and editable branding and content modules."
-              outcomes={[
-                {
-                  label: "Problem",
-                  text: "The team needed a way to manage content, media, roles, and site updates without relying on repeated developer intervention.",
-                },
-                {
-                  label: "Built",
-                  text: "A full-stack CMS with role-based access, rich text editing, audit logging, and Supabase-backed media workflows.",
-                },
-                {
-                  label: "Impact",
-                  text: "Reduced update bottlenecks and gave the business a more scalable internal content and admin process.",
-                },
-              ]}
-              skills={["Role-Based Access", "Media Management", "Audit Logging"]}
-              caseStudyLink="/case-studies/custom-cms-admin-dashboard"
-            />
-          </Reveal>
-
-          <Reveal as={Col} md={4} className="project-card" delay={380}>
-            <ProjectCard
-              imgPath={lindelaHomepage}
-              isBlog={false}
-              title="Lindela Travel Website"
-              meta="Freelance | Travel Services Website | Responsive UX"
-              description="Delivered a freelance public-facing website for a travel and visa services brand, with clearer service presentation, stronger homepage structure, and a smoother inquiry path for users exploring tours, flights, and visa assistance."
-              outcomes={[
-                {
-                  label: "Problem",
-                  text: "The client needed a more polished online presence that organized multiple travel services clearly and made it easier for visitors to understand offers and inquire with confidence.",
-                },
-                {
-                  label: "Built",
-                  text: "A responsive marketing website with improved homepage hierarchy, service-focused sections, and clearer calls to action for tours, flights, and visa-related inquiries.",
-                },
-                {
-                  label: "Impact",
-                  text: "Gave the business a more credible digital storefront and made the customer journey feel simpler for users comparing services or planning their next trip.",
-                },
-              ]}
-              skills={[
-                "Responsive UI",
-                "Service Page Structure",
-                "Marketing Website Delivery",
-              ]}
-              caseStudyLink="/engineering/react-travel-website-conversion-ux"
-              demoLink="https://lindelatravel.com/travel_lite/public/"
-            />
-          </Reveal>
-
-          <Reveal as={Col} md={4} className="project-card" delay={480}>
-            <ProjectCard
-              imgPaths={[mobiChatbot, mobiChatbotAlt, mobilPhChatbot]}
-              isBlog={false}
-              title="MOBI Chatbot for ExxonMobil PH"
-              meta="ExxonMobil Internship | Python | AI Chatbot"
-              description="Built an information and inquiry website with AI chatbot integration for ExxonMobil PH. The platform was designed to answer basic to complex questions about oils and vehicles while supporting a clearer digital customer experience."
-              outcomes={[
-                {
-                  label: "Problem",
-                  text: "Customers needed faster, clearer answers to oil and vehicle questions without depending only on manual support.",
-                },
-                {
-                  label: "Built",
-                  text: "An inquiry website with AI chatbot integration, Python-based backend work, and Streamlit-supported interactive flows.",
-                },
-                {
-                  label: "Impact",
-                  text: "Created a more scalable support experience that could handle both basic and more complex product questions.",
-                },
-              ]}
-              skills={[
-                "AI Software Development",
-                "Back-End Web Development",
-                "Python",
-                "Streamlit Integration",
-              ]}
-              caseStudyLink="/case-studies/exxonmobil-ai-chatbot"
-              ghLink="https://github.com/MIGSNOLIMIT/ExxonMobil1Ph-AI-Chatbot"
-              demoLink="https://exxonmobil1ph-ai-chatbot-mobi.streamlit.app"
-            />
-          </Reveal>
-        </Row>
+              return (
+                <Reveal
+                  key={project.id}
+                  as={Col}
+                  md={4}
+                  className="project-card"
+                  delay={80 + index * 100}
+                >
+                  <ProjectCard
+                    {...media}
+                    isBlog={false}
+                    title={project.title}
+                    meta={project.cardMeta}
+                    description={project.description}
+                    projectFacts={[
+                      { label: "Role", text: project.role },
+                      { label: "Owned", text: project.owned },
+                      { label: "Solved", text: project.constraint },
+                      { label: "What Changed", text: project.result },
+                    ]}
+                    skills={project.techStack}
+                  />
+                </Reveal>
+              );
+            })}
+          </Row>
           <LinkCollectionSection
             title="Case Studies and Engineering Breakdowns"
             intro="These supporting pages explain how the projects were framed, implemented, and tied to business outcomes."

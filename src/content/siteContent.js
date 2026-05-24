@@ -6,6 +6,17 @@ export const siteConfig = {
   phone: "+63 966 829 3379",
   jobTitle: "Full Stack Developer",
   location: "Rizal, Philippines",
+  preferredRoles: [
+    "Full Stack Developer",
+    "React / Next.js Developer",
+    "CMS and Internal Tools Developer",
+    "AI Workflow and Automation Developer",
+  ],
+  availability: ["Full-time", "Freelance", "Project-based"],
+  workModes: ["Remote", "Hybrid", "On-site"],
+  workRegion:
+    "Available for on-site or hybrid work within NCR and CALABARZON",
+  relocation: "Willing to relocate",
   keywords: [
     "full stack developer portfolio",
     "react developer philippines",
@@ -17,7 +28,6 @@ export const siteConfig = {
   socialLinks: [
     "https://github.com/MIGSNOLIMIT",
     "https://www.linkedin.com/in/carlos-miguel-samson-80268a36a/",
-    "https://bold.pro/my/carlos-miguelsamson-260422144939",
   ],
   skills: [
     "Next.js",
@@ -40,9 +50,17 @@ export const projectEntities = [
     title: "State101 Travel Website",
     path: "/projects",
     type: "Project",
+    cardMeta: "Client Website | React | Next.js",
+    role: "Frontend / Full Stack Web Developer",
     description:
-      "Responsive travel and visa assistance website built with React and Next.js for a clearer inquiry journey.",
-    techStack: ["React", "Next.js", "Responsive UI"],
+      "Responsive travel and visa assistance website built with React and Next.js to make services easier to understand and inquiries easier to start.",
+    owned:
+      "Responsive frontend delivery, page structure, content hierarchy, and inquiry-focused UX for the public website.",
+    constraint:
+      "The consultancy needed a clearer public-facing website that explained multiple services well and felt trustworthy across mobile and desktop.",
+    result:
+      "Delivered a cleaner digital experience that strengthened the company's online presence and supported ongoing business updates.",
+    techStack: ["React", "Next.js", "Responsive UI", "Content Architecture"],
     liveUrl: "https://state101-travel-website.vercel.app",
     repoUrl: "https://github.com/MIGSNOLIMIT/State101TravelWebsite",
     relatedIds: [
@@ -56,14 +74,22 @@ export const projectEntities = [
     title: "State101 Travel AI Assistant Platform",
     path: "/projects",
     type: "Project",
+    cardMeta: "Full Stack AI Developer | Python | Streamlit | Groq API",
+    role: "Full Stack AI Developer",
     description:
-      "Streamlit and Groq-powered AI travel assistant that answers after-hours inquiries using a company knowledge base.",
+      "Streamlit and Groq-powered AI travel assistant built to answer after-hours travel and visa inquiries using company knowledge.",
+    owned:
+      "Assistant workflow design, Streamlit UI, LLM integration, knowledge-base grounding, and lightweight content operations.",
+    constraint:
+      "The business could miss potential customers when inquiries arrived outside office hours and no one was available to respond immediately.",
+    result:
+      "Added a practical first-response layer that helped the business answer recurring questions faster and more consistently.",
     techStack: [
       "Python",
       "Streamlit",
       "Groq API",
       "Google Sheets API",
-      "Embedding Models",
+      "LLM Workflow Design",
     ],
     liveUrl: "https://state101travel-ai-chatbot.streamlit.app",
     repoUrl: "https://github.com/MIGSNOLIMIT/State101Travel-AI-Chatbot",
@@ -78,9 +104,24 @@ export const projectEntities = [
     title: "Custom CMS and Admin Dashboard",
     path: "/projects",
     type: "Project",
+    cardMeta: "Internal Platform | Next.js | Prisma | PostgreSQL",
+    role: "Full Stack Web Developer",
     description:
-      "Next.js, Prisma, PostgreSQL, and Supabase CMS for internal business content operations, media, and auditability.",
-    techStack: ["Next.js", "Prisma", "PostgreSQL", "Supabase"],
+      "Next.js, Prisma, PostgreSQL, and Supabase-based CMS built for internal content operations, media workflows, and auditability.",
+    owned:
+      "Dashboard architecture, CMS modules, role-based access, media handling, rich text editing, and audit logging.",
+    constraint:
+      "Non-technical teams needed to manage content, branding, roles, and media without relying on repeated developer intervention.",
+    result:
+      "Reduced update bottlenecks and gave the business a more scalable internal content workflow with stronger operational control.",
+    techStack: [
+      "Next.js",
+      "React",
+      "Prisma",
+      "PostgreSQL",
+      "Supabase",
+      "Role-Based Access",
+    ],
     relatedIds: [
       "cluster-custom-cms-admin-dashboard",
       "cluster-nextjs-prisma-admin-dashboard-architecture",
@@ -92,9 +133,21 @@ export const projectEntities = [
     title: "Lindela Travel Website",
     path: "/projects",
     type: "Project",
+    cardMeta: "Freelance | Travel Services Website | Responsive UX",
+    role: "Freelance Web Developer",
     description:
-      "Freelance travel services website focused on service clarity, responsive UX, and a better inquiry path.",
-    techStack: ["Responsive UX", "Marketing Website Delivery"],
+      "Freelance travel services website focused on clearer service presentation, responsive UX, and a better inquiry path.",
+    owned:
+      "Homepage structure, responsive frontend delivery, service-page clarity, and inquiry-focused user experience.",
+    constraint:
+      "The client needed a more credible way to present multiple travel services and make the next step clearer for visitors.",
+    result:
+      "Delivered a cleaner digital storefront that made offers easier to scan and gave the customer journey more confidence.",
+    techStack: [
+      "Responsive UI",
+      "Service Architecture",
+      "Marketing Website Delivery",
+    ],
     liveUrl: "https://lindelatravel.com/travel_lite/public/",
     relatedIds: [
       "cluster-react-travel-website-conversion-ux",
@@ -107,9 +160,17 @@ export const projectEntities = [
     title: "MOBI Chatbot for ExxonMobil PH",
     path: "/projects",
     type: "Project",
+    cardMeta: "ExxonMobil Internship | Python | AI Chatbot",
+    role: "Software Developer Intern",
     description:
-      "AI chatbot and inquiry experience for oil and vehicle questions, built with Python and Streamlit-supported flows.",
-    techStack: ["Python", "Streamlit", "AI Chatbot"],
+      "AI chatbot and inquiry experience for oil and vehicle questions, built with Python and Streamlit-supported interaction flows.",
+    owned:
+      "AI inquiry flow development, Python backend support, and Streamlit-based interaction work for product questions.",
+    constraint:
+      "Customers needed faster, clearer answers to oil and vehicle questions without depending only on manual support.",
+    result:
+      "Made the first support layer more scalable and improved the clarity of product-related inquiries.",
+    techStack: ["Python", "Streamlit", "AI Chatbot", "Support Workflow"],
     liveUrl: "https://exxonmobil1ph-ai-chatbot-mobi.streamlit.app",
     repoUrl: "https://github.com/MIGSNOLIMIT/ExxonMobil1Ph-AI-Chatbot",
     relatedIds: [

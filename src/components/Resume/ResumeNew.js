@@ -14,9 +14,15 @@ import Reveal from "../Reveal";
 import Breadcrumbs from "../SEO/Breadcrumbs";
 import Seo from "../SEO/Seo";
 import resumePdf from "../../Assets/Resume/Resume v1.pdf";
-import { createPersonSchema, createWebsiteSchema } from "../../content/siteContent";
+import {
+  createPersonSchema,
+  createWebsiteSchema,
+  siteConfig,
+} from "../../content/siteContent";
 
 function ResumeNew() {
+  const hiringBadges = [...siteConfig.availability, ...siteConfig.workModes];
+
   return (
     <div>
       <Seo
@@ -45,12 +51,33 @@ function ResumeNew() {
               Resume and <strong className="purple">Contact</strong>
             </h1>
             <p className="resume-intro">
-              Full Stack Web Developer with 4 years of experience building
-              Next.js, React, Node.js, Python, and database-driven applications
-              for real business operations. I enjoy shipping practical products
-              that balance clean UI, reliable backend workflows, AI-assisted
-              user experiences, and long-term maintainability.
+              Full Stack Developer with 4 years of hands-on experience building
+              websites, admin systems, CMS platforms, and AI-assisted workflows
+              using Next.js, React, Node.js, Python, PostgreSQL, and related tools.
             </p>
+            <div className="resume-hiring-card">
+              <p className="resume-hiring-kicker">Hiring Snapshot</p>
+              <h2 className="resume-hiring-title">
+                Open to full-time, freelance, and project-based opportunities
+              </h2>
+              <p className="resume-hiring-copy">
+                Preferred roles: {siteConfig.preferredRoles.join(", ")}.
+              </p>
+              <div className="hero-hiring-pill-list">
+                {hiringBadges.map((item) => (
+                  <span key={item} className="hero-hiring-pill">
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <p className="resume-hiring-note">
+                {siteConfig.workRegion}. {siteConfig.relocation}.
+              </p>
+              <Button variant="primary" href={`mailto:${siteConfig.email}`}>
+                <AiOutlineMail />
+                &nbsp;Email Me About Opportunities
+              </Button>
+            </div>
             <div className="resume-actions">
               <Button variant="primary" href="mailto:migsnolimit26@gmail.com">
                 <AiOutlineMail />
@@ -185,25 +212,43 @@ function ResumeNew() {
               <h4>Summary</h4>
               <ul>
                 <li>
-                  4 years of hands-on experience with Next.js, React, Node.js,
-                  and Python across full-stack product delivery.
+                  4 years of hands-on experience across full-stack product
+                  delivery, frontend implementation, internal tools, and
+                  AI-assisted workflow builds.
                 </li>
                 <li>
-                  Comfortable with APIs, AI chatbot integrations, NoSQL
-                  databases, PostgreSQL, Supabase, and third-party services.
+                  Strongest in Next.js, React, Node.js, Python, PostgreSQL,
+                  Prisma, Supabase, and API-connected product workflows.
                 </li>
                 <li>
-                  Interested in meaningful, challenging products where speed,
-                  clarity, and ownership matter.
+                  Best fit for roles where ownership, product judgment, and
+                  practical execution matter as much as raw coding speed.
                 </li>
               </ul>
             </Reveal>
 
             <Reveal className="resume-item" delay={220} direction="right">
+              <h4>Preferred Roles and Work Setup</h4>
+              <ul>
+                {siteConfig.preferredRoles.map((role) => (
+                  <li key={role}>{role}</li>
+                ))}
+                <li>
+                  Available for {siteConfig.availability.join(", ").toLowerCase()} work.
+                </li>
+                <li>
+                  Open to {siteConfig.workModes.join(", ").toLowerCase()} arrangements.
+                </li>
+                <li>{siteConfig.workRegion}.</li>
+                <li>{siteConfig.relocation}.</li>
+              </ul>
+            </Reveal>
+
+            <Reveal className="resume-item" delay={300} direction="right">
               <h4>Core Strengths</h4>
               <ul>
-                <li>Frontend development with responsive, performance-aware UI.</li>
-                <li>Backend workflows, admin systems, and business tooling.</li>
+                <li>Responsive frontend work with React and Next.js.</li>
+                <li>Backend workflows, CMS architecture, and internal admin systems.</li>
                 <li>AI chatbot experiences, automation, and cloud-connected integrations.</li>
                 <li>Independent execution and direct collaboration with founders or small teams.</li>
               </ul>
@@ -211,13 +256,14 @@ function ResumeNew() {
 
             <Reveal
               className="resume-item resume-contact"
-              delay={320}
+              delay={380}
               direction="right"
             >
               <h4>Contact</h4>
               <ul>
                 <li>Carlos Miguel Samson</li>
                 <li>Binangonan 1940, Rizal</li>
+                <li>{siteConfig.workRegion}</li>
                 <li>
                   <a href="tel:+639668293379">+63 966 829 3379</a>
                 </li>
@@ -227,11 +273,11 @@ function ResumeNew() {
                   </a>
                 </li>
                 <li>English - Expert</li>
-                <li>Willing to relocate anywhere</li>
+                <li>{siteConfig.relocation}</li>
               </ul>
             </Reveal>
 
-            <Reveal className="resume-item" delay={420} direction="right">
+            <Reveal className="resume-item" delay={460} direction="right">
               <h4>Links</h4>
               <ul>
                 <li>
@@ -267,15 +313,6 @@ function ResumeNew() {
                 <li>
                   <a href={resumePdf} download="Carlos-Miguel-Samson-Resume.pdf">
                     <AiOutlineDownload /> Download PDF Resume
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://bold.pro/my/carlos-miguelsamson-260422144939"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <AiOutlineDownload /> Bold.pro Profile
                   </a>
                 </li>
               </ul>

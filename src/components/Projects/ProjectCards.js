@@ -90,14 +90,15 @@ function ProjectCards(props) {
           {props.meta && <p className="project-card-meta">{props.meta}</p>}
           <Card.Title>{props.title}</Card.Title>
           <Card.Text className="project-card-description">{props.description}</Card.Text>
-          {props.outcomes && props.outcomes.length > 0 && (
-            <ul className="project-outcome-list">
-              {props.outcomes.map((outcome) => (
-                <li key={`${props.title}-${outcome.label}`}>
-                  <strong>{outcome.label}:</strong> {outcome.text}
-                </li>
+          {props.projectFacts && props.projectFacts.length > 0 && (
+            <div className="project-fact-list">
+              {props.projectFacts.map((fact) => (
+                <div key={`${props.title}-${fact.label}`} className="project-fact-item">
+                  <p className="project-fact-label">{fact.label}</p>
+                  <p className="project-fact-text">{fact.text}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           )}
           {props.skills && props.skills.length > 0 && (
             <div className="project-skill-list">

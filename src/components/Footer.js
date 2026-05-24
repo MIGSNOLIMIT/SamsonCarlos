@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { AiFillGithub, AiOutlineMail } from "react-icons/ai";
-import { CgWebsite } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 
 function Footer() {
@@ -39,16 +38,6 @@ function Footer() {
             <li className="social-icons">
               <a href="mailto:migsnolimit26@gmail.com" style={{ color: "white" }}>
                 <AiOutlineMail />
-              </a>
-            </li>
-            <li className="social-icons">
-              <a
-                href="https://bold.pro/my/carlos-miguelsamson-260422144939"
-                style={{ color: "white" }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <CgWebsite />
               </a>
             </li>
           </ul>

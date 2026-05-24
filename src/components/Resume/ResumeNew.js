@@ -11,13 +11,31 @@ import { CgWebsite } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 import Particle from "../Particle";
 import Reveal from "../Reveal";
+import Breadcrumbs from "../SEO/Breadcrumbs";
+import Seo from "../SEO/Seo";
 import resumePdf from "../../Assets/Resume/Resume v1.pdf";
+import { createPersonSchema, createWebsiteSchema } from "../../content/siteContent";
 
 function ResumeNew() {
   return (
     <div>
+      <Seo
+        title="Resume and Contact | Carlos Miguel Samson"
+        description="Resume, contact information, experience, and project links for Carlos Miguel Samson, a full stack developer focused on practical web products and internal tools."
+        path="/resume"
+        keywords={["software engineer resume", "full stack developer resume"]}
+        schema={[createWebsiteSchema(), createPersonSchema()]}
+      />
       <Container fluid className="resume-section">
         <Particle />
+        <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Home", to: "/" },
+              { label: "Resume", to: "/resume" },
+            ]}
+          />
+        </Container>
         <Reveal
           as={Row}
           style={{ justifyContent: "center", position: "relative" }}
@@ -152,9 +170,9 @@ function ResumeNew() {
             </Reveal>
             <Reveal className="resume-item" delay={400} direction="left">
               <h4>Bachelor of Science in Information Technology</h4>
-              <h5 className="resume-title">January 2022 - January 2026</h5>
+              <h5 className="resume-title">January 2022 - August 2026</h5>
               <p>
-                <em>STI College - Pasig</em>
+                <em>STI College - Ortigas-Cainta</em>
               </p>
             </Reveal>
           </Col>

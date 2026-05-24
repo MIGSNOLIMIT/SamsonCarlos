@@ -23,7 +23,7 @@ function AboutCard() {
             <span className="purple">
               Bachelor of Science in Information Technology
             </span>{" "}
-            from <span className="purple">STI College - Pasig</span>.
+            from <span className="purple">STI College - Ortigas-Cainta</span>.
             <br />
             <br />
             I enjoy working on products that combine solid engineering with

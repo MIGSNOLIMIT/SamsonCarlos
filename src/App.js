@@ -6,6 +6,11 @@ import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Resume from "./components/Resume/ResumeNew";
+import PillarPage from "./pages/PillarPage";
+import ClusterPage from "./pages/ClusterPage";
+import BlogIndexPage from "./pages/BlogIndexPage";
+import BlogCategoryPage from "./pages/BlogCategoryPage";
+import BlogPostPage from "./pages/BlogPostPage";
 import {
   BrowserRouter as Router,
   Route,
@@ -36,9 +41,27 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/project" element={<Navigate to="/projects" replace />} />
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
+          <Route
+            path="/full-stack-developer"
+            element={<PillarPage slug="full-stack-developer" />}
+          />
+          <Route
+            path="/react-nextjs-developer"
+            element={<PillarPage slug="react-nextjs-developer" />}
+          />
+          <Route
+            path="/web-development-case-studies"
+            element={<PillarPage slug="web-development-case-studies" />}
+          />
+          <Route path="/case-studies/:slug" element={<ClusterPage />} />
+          <Route path="/engineering/:slug" element={<ClusterPage />} />
+          <Route path="/blog" element={<BlogIndexPage />} />
+          <Route path="/blog/category/:slug" element={<BlogCategoryPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

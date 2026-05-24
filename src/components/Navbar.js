@@ -10,6 +10,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { FiEdit3 } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 function NavBar() {
@@ -74,13 +75,23 @@ function NavBar() {
             <Nav.Item>
               <Nav.Link
                 as={Link}
-                to="/project"
+                to="/projects"
                 onClick={() => updateExpanded(false)}
               >
                 <AiOutlineFundProjectionScreen
                   style={{ marginBottom: "2px" }}
                 />{" "}
                 Projects
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/blog"
+                onClick={() => updateExpanded(false)}
+              >
+                <FiEdit3 style={{ marginBottom: "2px" }} /> Blog
               </Nav.Link>
             </Nav.Item>
 

@@ -10,22 +10,72 @@ import mobiChatbotAlt from "../../Assets/Projects/mobichatbot1.png";
 import mobilPhChatbot from "../../Assets/Projects/mobilphchatbot.png";
 import Particle from "../Particle";
 import Reveal from "../Reveal";
+import Breadcrumbs from "../SEO/Breadcrumbs";
+import Seo from "../SEO/Seo";
+import LinkCollectionSection from "../SeoHub/LinkCollectionSection";
 import ProjectCard from "./ProjectCards";
+import {
+  blogPosts,
+  clusterPages,
+  createPersonSchema,
+  createWebsiteSchema,
+  getAbsoluteUrl,
+  projectEntities,
+  siteConfig,
+} from "../../content/siteContent";
 
 function Projects() {
+  const projectsSchema = [
+    createWebsiteSchema(),
+    createPersonSchema(),
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Projects Hub",
+      description:
+        "Portfolio projects, case studies, and engineering breakdowns covering full stack development, React and Next.js delivery, and AI chatbot workflows.",
+      url: getAbsoluteUrl("/projects"),
+      author: {
+        "@type": "Person",
+        name: siteConfig.siteName,
+      },
+      hasPart: projectEntities.map((project) => ({
+        "@type": "CreativeWork",
+        name: project.title,
+        description: project.description,
+        url: project.liveUrl || getAbsoluteUrl(project.path),
+      })),
+    },
+  ];
+
   return (
-    <Container fluid className="project-section">
-      <Particle />
-      <Container>
-        <h1 className="project-heading">
-          Selected <strong className="purple">Work </strong>
-        </h1>
-        <p className="project-intro">
-          A focused mix of public launch work, private admin tooling, and AI
-          chatbot product delivery across freelance, consultancy, and
-          internship experience.
-        </p>
-        <Row className="project-grid">
+    <>
+      <Seo
+        title="Projects and Web Development Case Studies | Carlos Miguel Samson"
+        description="Browse portfolio projects, engineering case studies, live demos, and GitHub links across React, Next.js, Python, CMS, and AI chatbot delivery."
+        path="/projects"
+        keywords={["web development case studies", "software engineer portfolio projects"]}
+        schema={projectsSchema}
+      />
+      <Container fluid className="project-section">
+        <Particle />
+        <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Home", to: "/" },
+              { label: "Projects", to: "/projects" },
+            ]}
+          />
+          <h1 className="project-heading">
+            Selected <strong className="purple">Work </strong>
+          </h1>
+          <p className="project-intro">
+            This page acts as the projects pillar in the site&apos;s SEO structure.
+            It connects live portfolio work to deeper case studies, engineering
+            breakdowns, and blog content so each project contributes to a larger
+            topic authority system.
+          </p>
+          <Row className="project-grid">
           <Reveal as={Col} md={4} className="project-card" delay={80}>
             <ProjectCard
               imgPath={state101Website}
@@ -48,6 +98,7 @@ function Projects() {
                 },
               ]}
               skills={["Responsive UI", "Content Architecture", "Frontend Delivery"]}
+              caseStudyLink="/engineering/react-travel-website-conversion-ux"
               ghLink="https://github.com/MIGSNOLIMIT/State101TravelWebsite"
               demoLink="https://state101-travel-website.vercel.app"
             />
@@ -80,6 +131,7 @@ function Projects() {
                 "Google Sheets API",
                 "Streamlit Delivery",
               ]}
+              caseStudyLink="/case-studies/state101-travel-ai-assistant"
               ghLink="https://github.com/MIGSNOLIMIT/State101Travel-AI-Chatbot"
               demoLink="https://state101travel-ai-chatbot.streamlit.app"
             />
@@ -107,6 +159,7 @@ function Projects() {
                 },
               ]}
               skills={["Role-Based Access", "Media Management", "Audit Logging"]}
+              caseStudyLink="/case-studies/custom-cms-admin-dashboard"
             />
           </Reveal>
 
@@ -136,6 +189,7 @@ function Projects() {
                 "Service Page Structure",
                 "Marketing Website Delivery",
               ]}
+              caseStudyLink="/engineering/react-travel-website-conversion-ux"
               demoLink="https://lindelatravel.com/travel_lite/public/"
             />
           </Reveal>
@@ -167,13 +221,26 @@ function Projects() {
                 "Python",
                 "Streamlit Integration",
               ]}
+              caseStudyLink="/case-studies/exxonmobil-ai-chatbot"
               ghLink="https://github.com/MIGSNOLIMIT/ExxonMobil1Ph-AI-Chatbot"
               demoLink="https://exxonmobil1ph-ai-chatbot-mobi.streamlit.app"
             />
           </Reveal>
         </Row>
+          <LinkCollectionSection
+            title="Case Studies and Engineering Breakdowns"
+            intro="These supporting pages explain how the projects were framed, implemented, and tied to business outcomes."
+            items={clusterPages}
+          />
+
+          <LinkCollectionSection
+            title="Project-Related Blog Content"
+            intro="The blog extends the portfolio with long-tail content that reinforces the same technical themes for search and for readers doing deeper evaluation."
+            items={blogPosts}
+          />
+        </Container>
       </Container>
-    </Container>
+    </>
   );
 }
 

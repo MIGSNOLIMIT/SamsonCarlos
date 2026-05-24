@@ -3,8 +3,9 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Carousel from "react-bootstrap/Carousel";
 import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 import { BsGithub } from "react-icons/bs";
-import { CgWebsite } from "react-icons/cg";
+import { CgFileDocument, CgWebsite } from "react-icons/cg";
 import { FiZoomIn } from "react-icons/fi";
 
 function ProjectCards(props) {
@@ -41,6 +42,7 @@ function ProjectCards(props) {
                     src={images[0]}
                     alt={`${props.title} preview`}
                     className="project-card-image"
+                    loading="lazy"
                   />
                   <span className="project-zoom-hint">
                     <FiZoomIn />
@@ -70,6 +72,7 @@ function ProjectCards(props) {
                           src={image}
                           alt={`${props.title} preview ${index + 1}`}
                           className="project-card-image"
+                          loading="lazy"
                         />
                         <span className="project-zoom-hint">
                           <FiZoomIn />
@@ -105,8 +108,13 @@ function ProjectCards(props) {
               ))}
             </div>
           )}
-          {(props.ghLink || (!props.isBlog && props.demoLink)) && (
+          {(props.caseStudyLink || props.ghLink || (!props.isBlog && props.demoLink)) && (
             <div className="project-card-actions">
+              {props.caseStudyLink && (
+                <Button as={Link} variant="primary" to={props.caseStudyLink}>
+                  <CgFileDocument /> &nbsp;Case Study
+                </Button>
+              )}
               {props.ghLink && (
                 <Button
                   variant="primary"
@@ -163,6 +171,7 @@ function ProjectCards(props) {
                       src={image}
                       alt={`${props.title} preview ${index + 1}`}
                       className="project-zoom-image"
+                      loading="lazy"
                     />
                   </div>
                 </Carousel.Item>
@@ -175,6 +184,7 @@ function ProjectCards(props) {
                 src={images[0]}
                 alt={`${props.title} preview`}
                 className="project-zoom-image"
+                loading="lazy"
               />
             </div>
           )}

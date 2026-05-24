@@ -2,19 +2,34 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
 import Reveal from "../Reveal";
+import Breadcrumbs from "../SEO/Breadcrumbs";
+import Seo from "../SEO/Seo";
 import Github from "./Github";
 import Techstack from "./Techstack";
 import Aboutcard from "./AboutCard";
 import laptopImg from "../../Assets/about.png";
 import Toolstack from "./Toolstack";
+import { createPersonSchema, createWebsiteSchema } from "../../content/siteContent";
 
 function About() {
   return (
     <>
-      {" "}
+      <Seo
+        title="About Carlos Miguel Samson | Full Stack Developer Profile"
+        description="Learn about Carlos Miguel Samson, a full stack developer with experience across React, Next.js, Python, AI chatbots, and business web systems."
+        path="/about"
+        keywords={["about full stack developer", "react next.js developer profile"]}
+        schema={[createWebsiteSchema(), createPersonSchema()]}
+      />
       <Particle />
       <Container fluid className="about-section">
         <Container>
+          <Breadcrumbs
+            items={[
+              { label: "Home", to: "/" },
+              { label: "About", to: "/about" },
+            ]}
+          />
           <Row style={{ justifyContent: "center", padding: "10px" }}>
             <Reveal
               as={Col}
@@ -44,17 +59,17 @@ function About() {
           </Row>
 
           <Reveal delay={80}>
-            <h1 className="project-heading">
+            <h2 className="project-heading">
               Professional <strong className="purple">Skillset </strong>
-            </h1>
+            </h2>
           </Reveal>
 
           <Techstack />
 
           <Reveal delay={80}>
-            <h1 className="project-heading">
+            <h2 className="project-heading">
               <strong className="purple">Tools</strong> I use
-            </h1>
+            </h2>
           </Reveal>
           <Toolstack />
 

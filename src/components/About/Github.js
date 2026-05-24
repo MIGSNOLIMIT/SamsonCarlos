@@ -11,9 +11,9 @@ function Github() {
         color: "white",
       }}
     >
-      <h1 className="project-heading pb-4" style={{ paddingBottom: "20px" }}>
+      <h2 className="project-heading pb-4" style={{ paddingBottom: "20px" }}>
         Recent <strong className="purple">GitHub</strong> Activity
-      </h1>
+      </h2>
       <GitHubCalendar
         username="MIGSNOLIMIT"
         blockSize={30}

@@ -34,6 +34,7 @@ The UI has been customized away from the original template and now uses a warmer
 - GitHub contribution calendar
 - Resume and contact section
 - Project showcase section
+- Grounded chatbot widget that answers from the site's portfolio content
 
 ## Run Locally
 
@@ -70,6 +71,30 @@ To run the test suite:
 ```bash
 npm test -- --watchAll=false
 ```
+
+## Chatbot Setup
+
+The site now includes a floating chatbot widget backed by a Vercel API route at `/api/chat`.
+
+To enable real answers in production, add this environment variable in Vercel:
+
+```text
+GROQ_API_KEY=your_groq_api_key
+```
+
+Optional:
+
+```text
+GROQ_MODEL=llama-3.1-8b-instant
+```
+
+Notes:
+
+- The chatbot is grounded in the website's content data from `src/content/siteContent.js`.
+- The default Groq model is `llama-3.1-8b-instant`, which is a practical free-tier choice for this portfolio chatbot.
+- On Vercel, the widget can call the local `/api/chat` route directly.
+- During `npm start`, Create React App proxies `/api/chat` to `https://samson-carlos.vercel.app`, so the chatbot still works locally without browser CORS issues.
+- If you want to override that fallback, set `REACT_APP_CHAT_API_URL` to a different chat endpoint.
 
 ## Deployment
 

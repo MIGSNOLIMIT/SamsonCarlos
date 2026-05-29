@@ -5,6 +5,7 @@ import Home from "./components/Home/Home";
 import About from "./components/About/About";
 import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
+import ChatbotWidget from "./components/ChatbotWidget";
 import Resume from "./components/Resume/ResumeNew";
 import PillarPage from "./pages/PillarPage";
 import ClusterPage from "./pages/ClusterPage";
@@ -65,6 +66,7 @@ function App() {
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />
+        <ChatbotWidget />
       </div>
     </Router>
   );

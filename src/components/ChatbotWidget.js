@@ -26,7 +26,7 @@ function ChatbotWidget() {
     () => [
       createMessage(
         "assistant",
-        "Hi, I'm Carlos's portfolio chatbot. Ask about my projects, skills, AI chatbot work, case studies, or availability, and I'll answer using the content on this site.",
+        "Hi, I'm Carlos's portfolio chatbot. Ask about my background, skills, projects, AI chatbot work, experience, or availability.",
       ),
     ],
     [],
@@ -40,6 +40,7 @@ function ChatbotWidget() {
     () => process.env.REACT_APP_CHAT_API_URL || "/api/chat",
     [],
   );
+  const hasStartedConversation = messages.some((message) => message.role === "user");
 
   useEffect(() => {
     const messageList = messageListRef.current;
@@ -131,6 +132,9 @@ function ChatbotWidget() {
             <div>
               <p className="chatbot-eyebrow">Carlos's Chatbot</p>
               <h2>My Portfolio Chatbot</h2>
+              <p className="chatbot-header-note">
+                Ask about my work, stack, projects, or availability.
+              </p>
             </div>
             <button
               type="button"
@@ -140,28 +144,6 @@ function ChatbotWidget() {
             >
               <AiOutlineClose />
             </button>
-          </div>
-
-          <p className="chatbot-subtitle">
-            Ask about my work, experience, projects, or availability. This chatbot
-            answers from the content across my portfolio.
-          </p>
-
-          <div className="chatbot-starter-wrap">
-            <p className="chatbot-faq-title">Try asking</p>
-            <div className="chatbot-starters" aria-label="Suggested questions">
-              {STARTER_PROMPTS.map((prompt) => (
-                <button
-                  type="button"
-                  key={prompt}
-                  className="chatbot-starter"
-                  onClick={() => handleStarterClick(prompt)}
-                  disabled={isSending}
-                >
-                  {prompt}
-                </button>
-              ))}
-            </div>
           </div>
 
           <div className="chatbot-messages" ref={messageListRef}>
@@ -189,6 +171,25 @@ function ChatbotWidget() {
               </article>
             ))}
 
+            {!hasStartedConversation ? (
+              <div className="chatbot-starter-wrap">
+                <p className="chatbot-faq-title">Try asking</p>
+                <div className="chatbot-starters" aria-label="Suggested questions">
+                  {STARTER_PROMPTS.map((prompt) => (
+                    <button
+                      type="button"
+                      key={prompt}
+                      className="chatbot-starter"
+                      onClick={() => handleStarterClick(prompt)}
+                      disabled={isSending}
+                    >
+                      {prompt}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : null}
+
             {isSending ? (
               <div className="chatbot-typing" aria-live="polite">
                 <AiOutlineLoading3Quarters className="chatbot-spinner" />
@@ -199,7 +200,7 @@ function ChatbotWidget() {
 
           <form className="chatbot-form" onSubmit={handleSubmit}>
             <label className="visually-hidden" htmlFor="chatbot-input">
-              Ask a question about the website
+              Ask a question about Carlos
             </label>
             <textarea
               id="chatbot-input"

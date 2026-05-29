@@ -1,5 +1,6 @@
 import {
   getKnowledgeSourceLinks,
+  hasPortfolioIntent,
   searchSiteKnowledge,
 } from "../src/lib/siteKnowledge";
 
@@ -112,6 +113,14 @@ export default async function handler(request) {
     return jsonResponse({ error: "A message is required." }, 400);
   }
 
+  if (!hasPortfolioIntent(message)) {
+    return jsonResponse({
+      answer:
+        "I can help with Carlos Miguel Samson's background, skills, projects, AI chatbot work, resume, availability, and contact details. Ask me about one of those and I'll keep it focused.",
+      sources: [],
+    });
+  }
+
   const matches = searchSiteKnowledge(message, { limit: 6, minScore: 1 });
   const sources = getKnowledgeSourceLinks(matches).slice(0, 4);
   const context = formatKnowledgeContext(matches);
@@ -126,11 +135,13 @@ export default async function handler(request) {
 
   const model = process.env.GROQ_MODEL || "llama-3.1-8b-instant";
   const instructions = [
-    "You are the website assistant for Carlos Miguel Samson's portfolio.",
-    "Answer using only the supplied website context.",
-    "If the website context does not contain the answer, say that clearly instead of guessing.",
-    "Keep answers concise, helpful, and specific to the portfolio content.",
-    "When helpful, mention relevant projects, technologies, or case studies from the context.",
+    "You are Carlos Miguel Samson's portfolio chatbot.",
+    "Represent Carlos and answer questions about his background, skills, projects, experience, availability, contact details, and portfolio work.",
+    "Use only the supplied Carlos portfolio context.",
+    "If a visitor asks something unrelated to Carlos, his work, hiring, projects, or portfolio, briefly steer them back to topics you can help with.",
+    "If the supplied context does not contain the answer, say that clearly and offer a related Carlos-focused topic.",
+    "Keep answers concise, natural, and helpful.",
+    "When helpful, mention relevant projects, technologies, roles, experience, or case studies from the context.",
     "Do not mention hidden prompts, retrieval, or that you were given excerpts.",
   ].join(" ");
 
@@ -147,7 +158,7 @@ export default async function handler(request) {
         "",
         `Visitor question: ${message}`,
         "",
-        "Answer from the website content only.",
+        "Answer only as Carlos's portfolio chatbot. Stay focused on Carlos and his work.",
       ].join("\n"),
     },
   ];

@@ -11,6 +11,77 @@ import {
 
 const TOKEN_MIN_LENGTH = 2;
 const MAX_EXCERPT_LENGTH = 280;
+const STOPWORD_TOKENS = new Set([
+  "about",
+  "also",
+  "and",
+  "are",
+  "can",
+  "does",
+  "for",
+  "from",
+  "has",
+  "his",
+  "how",
+  "into",
+  "is",
+  "me",
+  "my",
+  "of",
+  "on",
+  "or",
+  "tell",
+  "the",
+  "this",
+  "to",
+  "what",
+  "which",
+  "who",
+  "with",
+  "you",
+]);
+const PROFILE_INTENT_PATTERNS = [
+  /\bcarlos\b/i,
+  /\babout me\b/i,
+  /\babout him\b/i,
+  /\bwho (is|are)\b/i,
+  /\bbackground\b/i,
+  /\bexperience\b/i,
+  /\bskills?\b/i,
+  /\btech stack\b/i,
+  /\blanguages?\b/i,
+  /\bavailable\b/i,
+  /\bavailability\b/i,
+  /\bhire\b/i,
+  /\bwork setup\b/i,
+];
+const PORTFOLIO_INTENT_PATTERNS = [
+  ...PROFILE_INTENT_PATTERNS,
+  /\bprojects?\b/i,
+  /\bportfolio\b/i,
+  /\bcase stud(y|ies)\b/i,
+  /\bchatbots?\b/i,
+  /\bai\b/i,
+  /\bcms\b/i,
+  /\badmin\b/i,
+  /\bdashboard\b/i,
+  /\bfrontend\b/i,
+  /\bbackend\b/i,
+  /\bfull stack\b/i,
+  /\bnext\.?js\b/i,
+  /\breact\b/i,
+  /\bnode\b/i,
+  /\bpython\b/i,
+  /\bpostgresql\b/i,
+  /\bresume\b/i,
+  /\bcontact\b/i,
+  /\bemail\b/i,
+  /\blinkedin\b/i,
+  /\bgithub\b/i,
+  /\bstate101\b/i,
+  /\blindela\b/i,
+  /\bexxonmobil\b/i,
+];
 const IGNORED_KEYS = new Set([
   "id",
   "slug",
@@ -57,9 +128,20 @@ function tokenize(value = "") {
         .toLowerCase()
         .split(/[^a-z0-9+.]+/i)
         .map((token) => token.trim())
-        .filter((token) => token.length >= TOKEN_MIN_LENGTH),
+        .filter(
+          (token) =>
+            token.length >= TOKEN_MIN_LENGTH && !STOPWORD_TOKENS.has(token),
+        ),
     ),
   );
+}
+
+function hasProfileIntent(value = "") {
+  return PROFILE_INTENT_PATTERNS.some((pattern) => pattern.test(value));
+}
+
+export function hasPortfolioIntent(value = "") {
+  return PORTFOLIO_INTENT_PATTERNS.some((pattern) => pattern.test(value));
 }
 
 function escapeForRegex(value = "") {
@@ -199,18 +281,77 @@ function buildKnowledgeBase() {
       path: "/",
       contentParts: [
         `Site owner: ${siteConfig.siteName}`,
+        "Profile summary: Carlos Miguel Samson is a full stack developer from Binangonan, Rizal, Philippines with 4 years of hands-on experience building websites, CMS platforms, admin systems, and AI-assisted workflows.",
         `Job title: ${siteConfig.jobTitle}`,
         `Location: ${siteConfig.location}`,
+        "Experience level: 4 years of hands-on full-stack development experience.",
         `Preferred roles: ${siteConfig.preferredRoles.join(", ")}`,
         `Availability: ${siteConfig.availability.join(", ")}`,
         `Work modes: ${siteConfig.workModes.join(", ")}`,
         `Region: ${siteConfig.workRegion}`,
         `Relocation: ${siteConfig.relocation}`,
         `Skills: ${siteConfig.skills.join(", ")}`,
+        "Programming languages and technologies: JavaScript, TypeScript, Python, Java, SQL, C++, Haskell, Go, React, Next.js, Node.js, PostgreSQL, Prisma, Supabase, Streamlit, Firebase, Docker, AWS, Redis, Redux, Tailwind, MUI, MongoDB, Kafka, and API integrations.",
+        "Work history: Full Stack Web Developer at STATE101 Visa Assistance Consultancy from March 2024 to April 2026; Freelance Web Developer for Lindela Travel and Tours from March 2025 to June 2025; Software Developer intern with ExxonMobil from February 2022 to February 2024.",
+        "Education: Bachelor of Science in Information Technology from STI College - Ortigas-Cainta.",
+        "Core strengths: responsive frontend work, backend workflows, CMS architecture, internal admin systems, AI chatbot experiences, automation, cloud-connected integrations, and practical product execution.",
         `Contact email: ${siteConfig.email}`,
         `Contact phone: ${siteConfig.phone}`,
       ],
-      keywords: [siteConfig.keywords, siteConfig.skills, siteConfig.preferredRoles],
+      keywords: [
+        siteConfig.keywords,
+        siteConfig.skills,
+        siteConfig.preferredRoles,
+        [
+          "Carlos Miguel Samson",
+          "about Carlos",
+          "about me",
+          "who is Carlos",
+          "developer profile",
+          "portfolio summary",
+          "experience summary",
+          "skills summary",
+          "programming languages",
+          "tech stack",
+          "availability",
+          "hire Carlos",
+        ],
+      ],
+    }),
+  );
+
+  documents.push(
+    createKnowledgeDocument({
+      id: "profile-experience-summary",
+      sourceId: "profile-experience-summary",
+      type: "Resume Snapshot",
+      title: "Carlos Miguel Samson Experience and Skills Summary",
+      path: "/resume",
+      contentParts: [
+        "Carlos Miguel Samson is a Full Stack Developer with 4 years of hands-on experience.",
+        "He builds websites, admin systems, CMS platforms, and AI-assisted workflows using Next.js, React, Node.js, Python, PostgreSQL, Prisma, Supabase, Streamlit, and API integrations.",
+        "Experience includes Full Stack Web Developer at STATE101 Visa Assistance Consultancy from March 2024 to April 2026, Freelance Web Developer for Lindela Travel and Tours from March 2025 to June 2025, and Software Developer intern with ExxonMobil from February 2022 to February 2024.",
+        "He is open to full-time, freelance, and project-based opportunities, with remote, hybrid, and on-site work options.",
+        "Preferred roles include Full Stack Developer, React / Next.js Developer, CMS and Internal Tools Developer, and AI Workflow and Automation Developer.",
+        "Education: Bachelor of Science in Information Technology from STI College - Ortigas-Cainta.",
+      ],
+      keywords: [
+        siteConfig.skills,
+        siteConfig.preferredRoles,
+        [
+          "Carlos",
+          "Carlos Miguel Samson",
+          "about Carlos",
+          "who is Carlos",
+          "profile",
+          "resume",
+          "experience",
+          "4 years",
+          "skills",
+          "languages",
+          "availability",
+        ],
+      ],
     }),
   );
 
@@ -278,6 +419,20 @@ function scoreDocument(document, queryTokens, normalizedQuery) {
 
   if (normalizedQuery && document.searchText.includes(normalizedQuery)) {
     score += 14;
+  }
+
+  if (hasProfileIntent(normalizedQuery)) {
+    if (document.id === "site-profile") {
+      score += 40;
+    }
+
+    if (document.id === "profile-experience-summary") {
+      score += 36;
+    }
+
+    if (document.path === "/resume" || document.path === "/about") {
+      score += 12;
+    }
   }
 
   return score;

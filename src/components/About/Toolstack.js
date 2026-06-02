@@ -4,6 +4,12 @@ import chrome from "../../Assets/TechIcons/Google Chrome.svg";
 import vsCode from "../../Assets/TechIcons/vscode.svg";
 import Postman from "../../Assets/TechIcons/Postman.svg";
 import Git from "../../Assets/TechIcons/Git.svg";
+import {
+  SiGithub,
+  SiPayloadcms,
+  SiWebflow,
+  SiWordpress,
+} from "react-icons/si";
 import Reveal from "../Reveal";
 
 function Toolstack() {
@@ -23,6 +29,22 @@ function Toolstack() {
     {
       icon: <img src={Git} alt="git" className="tech-icon-images" />,
       label: "Git",
+    },
+    {
+      icon: <SiGithub fontSize={"24px"} />,
+      label: "GitHub",
+    },
+    {
+      icon: <SiWebflow fontSize={"24px"} />,
+      label: "Webflow",
+    },
+    {
+      icon: <SiWordpress fontSize={"24px"} />,
+      label: "WordPress",
+    },
+    {
+      icon: <SiPayloadcms fontSize={"24px"} />,
+      label: "Payload CMS",
     },
   ];
 

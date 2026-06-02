@@ -16,15 +16,15 @@ function Home2() {
               I am Carlos Miguel Samson, a full stack developer with
               <span className="purple"> 4 years of hands-on experience </span>
               building modern web applications for real business workflows
-              across client websites, internal systems, and AI chatbot
-              experiences.
+              across production websites, applicant management systems, custom
+              CMS platforms, and AI chatbot experiences.
               <br />
               <br />
               My day-to-day work includes
               <i>
                 <b className="purple">
                   {" "}
-                  Next.js, React, Node.js, Python, API integrations, and
+                  Next.js, React, TypeScript, Node.js, Python, REST APIs, and
                   CMS/admin tooling
                 </b>
               </i>
@@ -35,11 +35,16 @@ function Home2() {
               <i>
                 <b className="purple">
                   {" "}
-                  AI chatbot features, performance-focused interfaces, custom
-                  dashboards,
+                  AI chatbot features, Webflow experiences, performance-focused
+                  interfaces, custom dashboards,
                 </b>
               </i>
               and data-driven product experiences that help teams move faster.
+              At STATE101, that included a centralized system supporting
+              <span className="purple"> 50+ visa applications per week </span>
+              and an AI assistant handling
+              <span className="purple"> 60-100 weekly inquiries </span>
+              during deployment.
               <br />
               <br />
               I am especially comfortable working with

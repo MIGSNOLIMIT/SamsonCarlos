@@ -13,8 +13,9 @@ import Particle from "../Particle";
 import Reveal from "../Reveal";
 import Breadcrumbs from "../SEO/Breadcrumbs";
 import Seo from "../SEO/Seo";
-import resumePdf from "../../Assets/Resume/Resume v1.pdf";
+import resumePdf from "../../Assets/Resume/Resume v3.pdf";
 import {
+  careerHighlights,
   createPersonSchema,
   createWebsiteSchema,
   siteConfig,
@@ -51,9 +52,10 @@ function ResumeNew() {
               Resume and <strong className="purple">Contact</strong>
             </h1>
             <p className="resume-intro">
-              Full Stack Developer with 4 years of hands-on experience building
-              websites, admin systems, CMS platforms, and AI-assisted workflows
-              using Next.js, React, Node.js, Python, PostgreSQL, and related tools.
+              Full Stack Developer with experience building production-ready
+              websites, custom CMS platforms, applicant management systems, and
+              AI-powered applications using Next.js, React, Node.js, Python,
+              PostgreSQL, and related tools.
             </p>
             <div className="resume-hiring-card">
               <p className="resume-hiring-kicker">Hiring Snapshot</p>
@@ -77,6 +79,18 @@ function ResumeNew() {
                 <AiOutlineMail />
                 &nbsp;Email Me About Opportunities
               </Button>
+            </div>
+            <div className="resume-impact-section">
+              <p className="impact-kicker">Selected impact</p>
+              <div className="impact-grid resume-impact-grid">
+                {careerHighlights.map((highlight) => (
+                  <div key={highlight.label} className="impact-card">
+                    <p className="impact-value">{highlight.value}</p>
+                    <p className="impact-label">{highlight.label}</p>
+                    <p className="impact-context">{highlight.context}</p>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="resume-actions">
               <Button variant="primary" href="mailto:migsnolimit26@gmail.com">
@@ -130,16 +144,28 @@ function ResumeNew() {
               </p>
               <ul>
                 <li>
-                  Built a custom full-stack CMS and admin dashboard using
-                  Next.js, React, Prisma, and PostgreSQL.
+                  Led development of the public-facing website, custom CMS, and
+                  administrative dashboard using Next.js, React, Prisma,
+                  PostgreSQL, and Supabase.
                 </li>
                 <li>
-                  Implemented role-based access control, media management via
-                  Supabase, rich text editing, and audit logging.
+                  Built a centralized applicant management system supporting
+                  50+ visa applications per week and streamlining review
+                  workflows.
                 </li>
                 <li>
-                  Supported editable branding and content modules so the team
-                  could manage website updates without developer bottlenecks.
+                  Implemented RBAC for 15 internal users, including 5
+                  administrators and 10 content editors.
+                </li>
+                <li>
+                  Developed editable content and branding modules across 4
+                  website pages, with media management, audit logging, and rich
+                  text editing for stronger content governance.
+                </li>
+                <li>
+                  Supported approximately 300+ monthly visitors while
+                  maintaining performance, reliability, and scalability through
+                  Vercel deployments.
                 </li>
               </ul>
             </Reveal>
@@ -152,42 +178,44 @@ function ResumeNew() {
               </p>
               <ul>
                 <li>
-                  Delivered a public-facing travel services website that
-                  presented tours, flights, and visa assistance in a clearer
-                  and more conversion-friendly way.
+                  Designed, developed, and deployed a responsive travel services
+                  website showcasing tours, flights, and visa assistance.
                 </li>
                 <li>
-                  Improved homepage structure, service-page clarity, and
-                  responsive behavior to support a more trustworthy browsing
-                  experience across devices.
+                  Improved site structure, navigation, and mobile
+                  responsiveness for a more intuitive experience across
+                  devices.
                 </li>
                 <li>
-                  Helped strengthen the client&apos;s online presence with a
-                  cleaner inquiry journey suited for a travel and visa-focused
-                  audience.
+                  Contributed to an estimated 70% increase in website visits and
+                  customer inquiries following launch.
+                </li>
+                <li>
+                  Collaborated directly with stakeholders to translate business
+                  requirements into a production-ready web solution.
                 </li>
               </ul>
             </Reveal>
 
             <Reveal className="resume-item" delay={300} direction="left">
-              <h4>Software Developer</h4>
+              <h4>Software Developer Intern</h4>
               <h5 className="resume-title">February 2022 - February 2024</h5>
               <p>
-                <em>ExxonMobil Internship - Philippines - Remote</em>
+                <em>ExxonMobil Philippines - Remote Internship</em>
               </p>
               <ul>
                 <li>
-                  Built an information and inquiry website with AI chatbot
-                  integration to answer basic to complex questions about oils
-                  and vehicles.
+                  Contributed to an information and inquiry platform with AI
+                  chatbot capabilities.
                 </li>
                 <li>
-                  Supported backend web development in Python, including
-                  Streamlit-based functionality for interactive user flows.
+                  Built Streamlit-based interfaces to support interactive user
+                  workflows.
                 </li>
                 <li>
-                  Contributed to software design, product problem-solving, and
-                  delivery across a remote internship environment.
+                  Integrated APIs and developed backend functionality using
+                  Python while assisting with debugging, testing, and feature
+                  enhancements.
                 </li>
               </ul>
             </Reveal>
@@ -197,9 +225,9 @@ function ResumeNew() {
             </Reveal>
             <Reveal className="resume-item" delay={400} direction="left">
               <h4>Bachelor of Science in Information Technology</h4>
-              <h5 className="resume-title">January 2022 - August 2026</h5>
+              <h5 className="resume-title">2022 - 2026 (Expected Graduation: 2026)</h5>
               <p>
-                <em>STI College - Ortigas-Cainta</em>
+                <em>STI College Ortigas-Cainta</em>
               </p>
             </Reveal>
           </Col>
@@ -213,12 +241,13 @@ function ResumeNew() {
               <ul>
                 <li>
                   4 years of hands-on experience across full-stack product
-                  delivery, frontend implementation, internal tools, and
-                  AI-assisted workflow builds.
+                  delivery, production websites, applicant management systems,
+                  custom CMS platforms, and AI-powered applications.
                 </li>
                 <li>
-                  Strongest in Next.js, React, Node.js, Python, PostgreSQL,
-                  Prisma, Supabase, and API-connected product workflows.
+                  Strongest in Next.js, React, TypeScript, Node.js, Python,
+                  PostgreSQL, Prisma, Supabase, REST APIs, and API-connected
+                  product workflows.
                 </li>
                 <li>
                   Best fit for roles where ownership, product judgment, and
@@ -248,8 +277,9 @@ function ResumeNew() {
               <h4>Core Strengths</h4>
               <ul>
                 <li>Responsive frontend work with React and Next.js.</li>
-                <li>Backend workflows, CMS architecture, and internal admin systems.</li>
-                <li>AI chatbot experiences, automation, and cloud-connected integrations.</li>
+                <li>Backend workflows, CMS architecture, and applicant management systems.</li>
+                <li>AI chatbot experiences, RAG workflows, prompt engineering, and automation.</li>
+                <li>Webflow, WordPress, Payload CMS, and cloud-connected integrations.</li>
                 <li>Independent execution and direct collaboration with founders or small teams.</li>
               </ul>
             </Reveal>
@@ -262,7 +292,7 @@ function ResumeNew() {
               <h4>Contact</h4>
               <ul>
                 <li>Carlos Miguel Samson</li>
-                <li>Binangonan 1940, Rizal</li>
+                <li>#878 Barrio Rd., Binangonan, Rizal</li>
                 <li>{siteConfig.workRegion}</li>
                 <li>
                   <a href="tel:+639668293379">+63 966 829 3379</a>
@@ -291,11 +321,20 @@ function ResumeNew() {
                 </li>
                 <li>
                   <a
-                    href="https://lindelatravel.com/travel_lite/public/"
+                    href="https://lindelatravel.com/"
                     target="_blank"
                     rel="noreferrer"
                   >
                     <CgWebsite /> Lindela Travel Website
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://state101travel-ai-chatbot.streamlit.app"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <CgWebsite /> Travel and Visa AI Assistant
                   </a>
                 </li>
                 <li>

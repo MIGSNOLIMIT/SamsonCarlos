@@ -5,18 +5,20 @@ export const siteConfig = {
   email: "migsnolimit26@gmail.com",
   phone: "+63 966 829 3379",
   jobTitle: "Full Stack Developer",
-  location: "Rizal, Philippines",
+  location: "Binangonan, Rizal, Philippines",
   preferredRoles: [
     "Full Stack Developer",
+    "Webflow Developer",
+    "AI Chatbot Developer",
     "React / Next.js Developer",
-    "CMS and Internal Tools Developer",
-    "AI Workflow and Automation Developer",
   ],
   availability: ["Full-time", "Freelance", "Project-based"],
   workModes: ["Remote", "Hybrid", "On-site"],
   workRegion:
     "Available for on-site or hybrid work within NCR and CALABARZON",
   relocation: "Willing to relocate",
+  naturalLanguages: ["English", "Filipino"],
+  yearsOfExperience: 4,
   keywords: [
     "full stack developer portfolio",
     "react developer philippines",
@@ -32,17 +34,57 @@ export const siteConfig = {
   skills: [
     "Next.js",
     "React",
+    "TypeScript",
+    "Tailwind CSS",
     "Node.js",
+    "Express.js",
     "Python",
     "PostgreSQL",
+    "MySQL",
+    "MongoDB",
     "Prisma",
     "Supabase",
+    "Vercel",
     "Streamlit",
-    "API Integrations",
+    "REST APIs",
     "AI Chatbots",
+    "RAG",
+    "Prompt Engineering",
+    "Embeddings",
     "Google Sheets API",
+    "WordPress",
+    "Payload CMS",
+    "Webflow",
   ],
 };
+
+export const careerHighlights = [
+  {
+    value: "50+",
+    label: "Visa applications supported weekly",
+    context: "Centralized applicant management at STATE101",
+  },
+  {
+    value: "60-100",
+    label: "Customer inquiries handled weekly",
+    context: "Travel and Visa AI Assistant during deployment",
+  },
+  {
+    value: "300+",
+    label: "Monthly website visitors supported",
+    context: "STATE101 public website on Vercel",
+  },
+  {
+    value: "~70%",
+    label: "Increase in visits and inquiries",
+    context: "Estimated lift after the Lindela website launch",
+  },
+  {
+    value: "15",
+    label: "Internal CMS users enabled",
+    context: "5 administrators and 10 content editors",
+  },
+];
 
 export const projectEntities = [
   {
@@ -59,8 +101,12 @@ export const projectEntities = [
     constraint:
       "The consultancy needed a clearer public-facing website that explained multiple services well and felt trustworthy across mobile and desktop.",
     result:
-      "Delivered a cleaner digital experience that strengthened the company's online presence and supported ongoing business updates.",
-    techStack: ["React", "Next.js", "Responsive UI", "Content Architecture"],
+      "Supported approximately 300+ monthly visitors with a reliable, scalable public website deployed through Vercel.",
+    impactHighlights: [
+      { value: "300+", label: "Monthly visitors supported" },
+      { value: "4", label: "Editable website pages" },
+    ],
+    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
     liveUrl: "https://state101-travel-website.vercel.app",
     repoUrl: "https://github.com/MIGSNOLIMIT/State101TravelWebsite",
     relatedIds: [
@@ -83,7 +129,11 @@ export const projectEntities = [
     constraint:
       "The business could miss potential customers when inquiries arrived outside office hours and no one was available to respond immediately.",
     result:
-      "Added a practical first-response layer that helped the business answer recurring questions faster and more consistently.",
+      "Processed approximately 60-100 customer inquiries per week during deployment, reducing the manual response workload.",
+    impactHighlights: [
+      { value: "60-100", label: "Customer inquiries handled weekly" },
+      { value: "24/7", label: "First-response coverage" },
+    ],
     techStack: [
       "Python",
       "Streamlit",
@@ -101,19 +151,24 @@ export const projectEntities = [
   },
   {
     id: "project-custom-cms",
-    title: "Custom CMS and Admin Dashboard",
+    title: "Custom CMS and Applicant Management System",
     path: "/projects",
     type: "Project",
     cardMeta: "Internal Platform | Next.js | Prisma | PostgreSQL",
     role: "Full Stack Web Developer",
     description:
-      "Next.js, Prisma, PostgreSQL, and Supabase-based CMS built for internal content operations, media workflows, and auditability.",
+      "Next.js, Prisma, PostgreSQL, and Supabase-based internal platform built for applicant workflows, content operations, media management, and auditability.",
     owned:
       "Dashboard architecture, CMS modules, role-based access, media handling, rich text editing, and audit logging.",
     constraint:
-      "Non-technical teams needed to manage content, branding, roles, and media without relying on repeated developer intervention.",
+      "The team needed one scalable place to review visa applications and manage content, branding, roles, and media without repeated developer intervention.",
     result:
-      "Reduced update bottlenecks and gave the business a more scalable internal content workflow with stronger operational control.",
+      "Supported 50+ visa applications per week while enabling 15 internal users to manage review and content workflows with clearer operational control.",
+    impactHighlights: [
+      { value: "50+", label: "Visa applications supported weekly" },
+      { value: "15", label: "Internal users enabled" },
+      { value: "4", label: "Editable website pages" },
+    ],
     techStack: [
       "Next.js",
       "React",
@@ -142,13 +197,17 @@ export const projectEntities = [
     constraint:
       "The client needed a more credible way to present multiple travel services and make the next step clearer for visitors.",
     result:
-      "Delivered a cleaner digital storefront that made offers easier to scan and gave the customer journey more confidence.",
-    techStack: [
-      "Responsive UI",
-      "Service Architecture",
-      "Marketing Website Delivery",
+      "Contributed to an estimated 70% increase in website visits and customer inquiries following the launch.",
+    impactHighlights: [
+      { value: "~70%", label: "Increase in visits and inquiries" },
     ],
-    liveUrl: "https://lindelatravel.com/travel_lite/public/",
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+    ],
+    liveUrl: "https://lindelatravel.com/",
     relatedIds: [
       "cluster-react-travel-website-conversion-ux",
       "pillar-web-development-case-studies",
@@ -160,7 +219,7 @@ export const projectEntities = [
     title: "MOBI Chatbot for ExxonMobil PH",
     path: "/projects",
     type: "Project",
-    cardMeta: "ExxonMobil Internship | Python | AI Chatbot",
+    cardMeta: "ExxonMobil Philippines Internship | Python | AI Chatbot",
     role: "Software Developer Intern",
     description:
       "AI chatbot and inquiry experience for oil and vehicle questions, built with Python and Streamlit-supported interaction flows.",
@@ -405,7 +464,7 @@ export const clusterPages = [
       {
         heading: "Impact",
         paragraphs: [
-          "The result was a lightweight assistant that could cover the first layer of support when staff were unavailable. It helped the company respond faster, answer recurring questions more consistently, and create a better handoff into human follow-up when needed.",
+          "The result was a lightweight assistant that processed approximately 60-100 customer inquiries per week during deployment. It reduced the manual response workload, covered the first layer of support when staff were unavailable, and created a better handoff into human follow-up when needed.",
         ],
       },
     ],
@@ -431,7 +490,7 @@ export const clusterPages = [
       "See how a custom CMS and admin dashboard was built with Next.js, Prisma, PostgreSQL, and Supabase to reduce content update bottlenecks.",
     keyword: "custom cms admin dashboard case study",
     intro:
-      "This platform started with a common pain point: the business needed to update content, manage media, and control access without asking a developer to step in for every small change.",
+      "This platform started with a practical operations problem: the business needed to review a growing visa application workload while also updating content, managing media, and controlling access without asking a developer to step in for every small change.",
     sections: [
       {
         heading: "Business Constraint",
@@ -442,7 +501,7 @@ export const clusterPages = [
       {
         heading: "Implementation",
         paragraphs: [
-          "I used Next.js and React for the admin experience, Prisma and PostgreSQL for the data model, and Supabase-backed media handling for assets. The platform also included role-based access, audit logs, and editable modules so the system felt practical to operate, not just complete on paper.",
+          "I used Next.js and React for the admin experience, Prisma and PostgreSQL for the data model, and Supabase-backed media handling for assets. The platform also included role-based access for 15 internal users, audit logs, and editable modules across 4 website pages so the system felt practical to operate, not just complete on paper.",
         ],
         bullets: [
           "Role-based access to reduce accidental changes",
@@ -454,7 +513,7 @@ export const clusterPages = [
       {
         heading: "Result",
         paragraphs: [
-          "The team gained a lot more independence over day-to-day updates. Just as important, the system gave the business a cleaner operational base instead of scaling content work through more developer requests.",
+          "The centralized applicant management system supported 50+ visa applications per week. It also gave 5 administrators and 10 content editors more independence over day-to-day work, creating a cleaner operational base instead of scaling through more developer requests.",
         ],
       },
     ],
@@ -638,7 +697,7 @@ export const clusterPages = [
       {
         heading: "Business Result",
         paragraphs: [
-          "A stronger result here is not just a prettier site. It is a site that feels clearer, more trustworthy, and easier to act on for someone who is already uncertain.",
+          "A stronger result here is not just a prettier site. The STATE101 public website supported approximately 300+ monthly visitors, while the Lindela launch contributed to an estimated 70% increase in website visits and customer inquiries. Clearer structure helped turn frontend decisions into measurable business value.",
         ],
       },
     ],

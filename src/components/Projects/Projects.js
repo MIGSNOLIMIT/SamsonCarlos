@@ -45,7 +45,7 @@ function Projects() {
     "project-lindela-website": {
       imgPath: lindelaHomepage,
       caseStudyLink: "/engineering/react-travel-website-conversion-ux",
-      demoLink: "https://lindelatravel.com/travel_lite/public/",
+      demoLink: "https://lindelatravel.com/",
     },
     "project-exxonmobil-ai": {
       imgPaths: [mobiChatbot, mobiChatbotAlt, mobilPhChatbot],
@@ -122,6 +122,7 @@ function Projects() {
                     title={project.title}
                     meta={project.cardMeta}
                     description={project.description}
+                    impactHighlights={project.impactHighlights}
                     projectFacts={[
                       { label: "Role", text: project.role },
                       { label: "Owned", text: project.owned },

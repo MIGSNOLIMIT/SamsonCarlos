@@ -14,5 +14,17 @@ test("prioritizes Carlos profile content for personal questions", () => {
 test("recognizes portfolio topics and rejects unrelated topics", () => {
   expect(hasPortfolioIntent("What projects did Carlos build?")).toBe(true);
   expect(hasPortfolioIntent("Can I hire him for React work?")).toBe(true);
+  expect(hasPortfolioIntent("How many visa applications are supported weekly?")).toBe(true);
+  expect(hasPortfolioIntent("How many monthly website views are supported?")).toBe(true);
   expect(hasPortfolioIntent("What is the capital of France?")).toBe(false);
+});
+
+test("surfaces resume-backed impact metrics", () => {
+  const results = searchSiteKnowledge("How many visa applications are supported weekly?", {
+    limit: 4,
+  });
+  const combinedContent = results.map((result) => result.content).join(" ");
+
+  expect(combinedContent).toMatch(/50\+ visa applications per week/i);
+  expect(combinedContent).toMatch(/15 internal users/i);
 });

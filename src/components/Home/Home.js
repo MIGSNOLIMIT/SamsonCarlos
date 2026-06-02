@@ -6,7 +6,7 @@ import { CgFileDocument, CgWebsite } from "react-icons/cg";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import homeLogo from "../../Assets/home-main.png";
-import resumePdf from "../../Assets/Resume/Resume v1.pdf";
+import resumePdf from "../../Assets/Resume/Resume v3.pdf";
 import Particle from "../Particle";
 import Reveal from "../Reveal";
 import Seo from "../SEO/Seo";
@@ -26,9 +26,9 @@ function Home() {
   const heroTech = [
     "Next.js",
     "React",
+    "TypeScript",
     "Node.js",
     "Python",
-    "PostgreSQL",
     "AI Chatbots",
   ];
   const hiringBadges = [...siteConfig.availability, ...siteConfig.workModes];
@@ -66,8 +66,8 @@ function Home() {
             <Col md={7} className="home-header">
               <Reveal delay={40}>
                 <p className="hero-kicker">
-                  Full Stack Developer with 4 years of experience across
-                  websites, CMS platforms, and AI-assisted customer experiences
+                  Full Stack Developer building production-ready websites,
+                  internal platforms, and AI-assisted customer experiences
                 </p>
               </Reveal>
 
@@ -93,9 +93,9 @@ function Home() {
               <Reveal delay={390}>
                 <p className="home-tagline">
                   I bring 4 years of hands-on experience using Next.js, React,
-                  Node.js, Python, and PostgreSQL to ship responsive websites,
-                  admin systems, and AI chatbot experiences for real business
-                  workflows.
+                  TypeScript, Node.js, Python, and PostgreSQL to ship responsive
+                  websites, applicant management systems, custom CMS platforms,
+                  and AI chatbot experiences for real business workflows.
                 </p>
               </Reveal>
 

@@ -35,6 +35,7 @@ The UI has been customized away from the original template and now uses a warmer
 - Resume and contact section
 - Project showcase section
 - Grounded chatbot widget that answers from the site's portfolio content
+- Live portfolio view counter backed by a server-side Redis-compatible store
 
 ## Run Locally
 
@@ -96,11 +97,30 @@ Notes:
 - During `npm start`, Create React App proxies `/api/chat` to `https://samson-carlos.vercel.app`, so the chatbot still works locally without browser CORS issues.
 - If you want to override that fallback, set `REACT_APP_CHAT_API_URL` to a different chat endpoint.
 
+## Portfolio View Counter Setup
+
+The homepage includes a live portfolio view counter backed by the Vercel API
+route at `/api/views`. It counts one view per browser session and includes a
+clearly labeled 200-view launch baseline by default.
+
+Connect an Upstash Redis database through Vercel Marketplace, or add the
+standard Upstash REST variables manually:
+
+```text
+KV_REST_API_URL=your_upstash_rest_url
+KV_REST_API_TOKEN=your_upstash_rest_token
+```
+
+The API also accepts `UPSTASH_REDIS_REST_URL` and
+`UPSTASH_REDIS_REST_TOKEN`. Keep the token server-side. Optionally set
+`PORTFOLIO_VIEW_COUNTER_KEY` to use a custom Redis key or
+`PORTFOLIO_VIEW_BASELINE=0` to remove the launch baseline.
+
 ## Deployment
 
 This portfolio is deployed on Vercel:
 
-[https://SamsonSarlos.vercel.app](https://SamsonCarlos.vercel.app)
+[https://SamsonCarlos.vercel.app](https://SamsonCarlos.vercel.app)
 
 ## Contact
 

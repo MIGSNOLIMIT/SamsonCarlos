@@ -20,11 +20,12 @@ function AboutCard() {
             <span className="purple">STATE101 Visa Assistance Consultancy</span>
             , and earlier as a <span className="purple">Software Developer</span>{" "}
             intern with <span className="purple">ExxonMobil</span>.
-            <br />I earned my{" "}
+            <br />I am completing my{" "}
             <span className="purple">
               Bachelor of Science in Information Technology
             </span>{" "}
-            from <span className="purple">STI College - Ortigas-Cainta</span>.
+            at <span className="purple">STI College Ortigas-Cainta</span>, with
+            expected graduation in <span className="purple">2026</span>.
             <br />
             <br />
             I enjoy working on products that combine solid engineering with
@@ -34,7 +35,7 @@ function AboutCard() {
           <ul>
             <li className="about-activity">
               <ImPointRight /> Building CMS, admin dashboards, and internal
-              tools
+              applicant management tools
             </li>
             <li className="about-activity">
               <ImPointRight /> Integrating APIs, databases, cloud services, and

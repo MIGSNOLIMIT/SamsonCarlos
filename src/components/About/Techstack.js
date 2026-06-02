@@ -1,16 +1,25 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { SiNextdotjs } from "react-icons/si";
+import {
+  SiExpress,
+  SiMongodb,
+  SiMysql,
+  SiNextdotjs,
+  SiOpenai,
+  SiPrisma,
+  SiPython,
+  SiStreamlit,
+  SiSupabase,
+  SiVercel,
+  SiWebflow,
+} from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 import Javascript from "../../Assets/TechIcons/Javascript.svg";
 import Node from "../../Assets/TechIcons/Node.svg";
 import ReactIcon from "../../Assets/TechIcons/React.svg";
 import Typescript from "../../Assets/TechIcons/Typescript.svg";
-import Git from "../../Assets/TechIcons/Git.svg";
-import Mongo from "../../Assets/TechIcons/Mongo.svg";
 import SQL from "../../Assets/TechIcons/SQL.svg";
 import Tailwind from "../../Assets/TechIcons/Tailwind.svg";
-import MUI from "../../Assets/TechIcons/MUI.svg";
-import Postman from "../../Assets/TechIcons/Postman.svg";
 import Reveal from "../Reveal";
 
 function Techstack() {
@@ -40,28 +49,52 @@ function Techstack() {
       label: "PostgreSQL",
     },
     {
-      icon: <img src={SQL} alt="supabase" className="tech-icon-images" />,
+      icon: <SiMysql fontSize={"24px"} />,
+      label: "MySQL",
+    },
+    {
+      icon: <SiMongodb fontSize={"24px"} />,
+      label: "MongoDB",
+    },
+    {
+      icon: <SiPrisma fontSize={"24px"} />,
+      label: "Prisma ORM",
+    },
+    {
+      icon: <SiSupabase fontSize={"24px"} />,
       label: "Supabase",
     },
     {
-      icon: <img src={Mongo} alt="nosql databases" className="tech-icon-images" />,
-      label: "NoSQL Databases",
+      icon: <SiExpress fontSize={"24px"} />,
+      label: "Express.js",
     },
     {
       icon: <img src={Tailwind} alt="tailwind" className="tech-icon-images" />,
       label: "Tailwind CSS",
     },
     {
-      icon: <img src={MUI} alt="material ui" className="tech-icon-images" />,
-      label: "Material UI",
+      icon: <SiPython fontSize={"24px"} />,
+      label: "Python",
     },
     {
-      icon: <img src={Git} alt="git" className="tech-icon-images" />,
-      label: "Git",
+      icon: <SiStreamlit fontSize={"24px"} />,
+      label: "Streamlit",
     },
     {
-      icon: <img src={Postman} alt="postman" className="tech-icon-images" />,
-      label: "Postman",
+      icon: <TbApi fontSize={"24px"} />,
+      label: "REST APIs",
+    },
+    {
+      icon: <SiOpenai fontSize={"24px"} />,
+      label: "AI / RAG",
+    },
+    {
+      icon: <SiWebflow fontSize={"24px"} />,
+      label: "Webflow",
+    },
+    {
+      icon: <SiVercel fontSize={"24px"} />,
+      label: "Vercel",
     },
   ];
 

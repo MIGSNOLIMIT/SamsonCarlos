@@ -90,6 +90,22 @@ function ProjectCards(props) {
           {props.meta && <p className="project-card-meta">{props.meta}</p>}
           <Card.Title>{props.title}</Card.Title>
           <Card.Text className="project-card-description">{props.description}</Card.Text>
+          {props.impactHighlights && props.impactHighlights.length > 0 && (
+            <div className="project-impact-section">
+              <p className="project-impact-kicker">Impact</p>
+              <div className="project-impact-grid" aria-label={`${props.title} impact`}>
+                {props.impactHighlights.map((highlight) => (
+                  <div
+                    key={`${props.title}-${highlight.label}`}
+                    className="project-impact-card"
+                  >
+                    <p className="project-impact-value">{highlight.value}</p>
+                    <p className="project-impact-label">{highlight.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
           {props.projectFacts && props.projectFacts.length > 0 && (
             <div className="project-fact-list">
               {props.projectFacts.map((fact) => (

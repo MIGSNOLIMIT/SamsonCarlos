@@ -12,6 +12,7 @@ import ClusterPage from "./pages/ClusterPage";
 import BlogIndexPage from "./pages/BlogIndexPage";
 import BlogCategoryPage from "./pages/BlogCategoryPage";
 import BlogPostPage from "./pages/BlogPostPage";
+import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import {
   BrowserRouter as Router,
   Route,
@@ -63,6 +64,7 @@ function App() {
           <Route path="/blog" element={<BlogIndexPage />} />
           <Route path="/blog/category/:slug" element={<BlogCategoryPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="/analytics-dashboard" element={<AnalyticsDashboard />} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

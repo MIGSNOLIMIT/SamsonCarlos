@@ -116,5 +116,4 @@ export default async function handler(request) {
       503,
     );
   }
-  }
 }

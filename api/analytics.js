@@ -1,9 +1,5 @@
-export const config = {
-  runtime: "nodejs",
-};
-
-import { promises as fs } from "fs";
-import path from "path";
+const { promises: fs } = require("fs");
+const path = require("path");
 
 const DATA_DIR = path.join(process.cwd(), ".data");
 const ANALYTICS_FILE = path.join(DATA_DIR, "chatbot-analytics.json");
@@ -32,7 +28,7 @@ async function ensureDataDir() {
   }
 }
 
-export default async function handler(request) {
+module.exports = async function handler(request) {
   if (request.method === "OPTIONS") {
     return new Response(null, {
       status: 204,
@@ -155,4 +151,4 @@ export default async function handler(request) {
       500,
     );
   }
-}
+};

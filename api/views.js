@@ -1,9 +1,12 @@
 export const config = {
-  runtime: "edge",
+  runtime: "nodejs",
 };
 
-const DEFAULT_COUNTER_KEY = "portfolio:views:total";
+import { promises as fs } from "fs";
+import path from "path";
+
 const DEFAULT_COUNTER_BASELINE = 200;
+const VIEWS_FILE = path.join(process.cwd(), ".data", "views-counter.json");
 
 function buildHeaders(contentType = "application/json") {
   return {
@@ -22,45 +25,53 @@ function jsonResponse(body, status = 200) {
   });
 }
 
-function getRedisConfig() {
-  const url =
-    process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL || "";
-  const token =
-    process.env.KV_REST_API_TOKEN ||
-    process.env.UPSTASH_REDIS_REST_TOKEN ||
-    "";
+async function getOrInitializeCounter() {
+  try {
+    // Ensure .data directory exists
+    const dataDir = path.join(process.cwd(), ".data");
+    try {
+      await fs.mkdir(dataDir, { recursive: true });
+    } catch (error) {
+      // Directory might already exist
+    }
 
-  return {
-    url: url.replace(/\/+$/, ""),
-    token,
-  };
+    // Try to read existing counter
+    try {
+      const data = await fs.readFile(VIEWS_FILE, "utf-8");
+      return parseInt(JSON.parse(data).count, 10) || 0;
+    } catch (error) {
+      // File doesn't exist, return 0
+      return 0;
+    }
+  } catch (error) {
+    return 0;
+  }
 }
 
-async function runRedisCommand(command) {
-  const { url, token } = getRedisConfig();
+async function incrementCounter() {
+  try {
+    const dataDir = path.join(process.cwd(), ".data");
+    await fs.mkdir(dataDir, { recursive: true });
 
-  if (!url || !token) {
-    throw new Error("Portfolio view counter is not configured.");
+    let currentCount = 0;
+    try {
+      const data = await fs.readFile(VIEWS_FILE, "utf-8");
+      currentCount = parseInt(JSON.parse(data).count, 10) || 0;
+    } catch (error) {
+      // File doesn't exist
+    }
+
+    const newCount = currentCount + 1;
+    await fs.writeFile(
+      VIEWS_FILE,
+      JSON.stringify({ count: newCount, lastUpdated: new Date().toISOString() }, null, 2)
+    );
+
+    return newCount;
+  } catch (error) {
+    console.error("Failed to increment counter:", error);
+    return 0;
   }
-
-  const counterKey =
-    process.env.PORTFOLIO_VIEW_COUNTER_KEY || DEFAULT_COUNTER_KEY;
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify([command, counterKey]),
-    cache: "no-store",
-  });
-  const payload = await response.json();
-
-  if (!response.ok || payload.error) {
-    throw new Error(payload.error || "Portfolio view counter request failed.");
-  }
-
-  return Number.parseInt(payload.result || "0", 10) || 0;
 }
 
 export default async function handler(request) {
@@ -76,27 +87,34 @@ export default async function handler(request) {
   }
 
   try {
-    const command = request.method === "POST" ? "INCR" : "GET";
-    const storedCount = await runRedisCommand(command);
-    const baseline = Number.parseInt(
-      process.env.PORTFOLIO_VIEW_BASELINE || `${DEFAULT_COUNTER_BASELINE}`,
-      10,
-    );
-    const count = storedCount + (Number.isNaN(baseline) ? 0 : baseline);
+    const baseline = DEFAULT_COUNTER_BASELINE;
+    let count = 0;
+
+    if (request.method === "POST") {
+      // Increment on POST (new visit)
+      count = await incrementCounter();
+    } else {
+      // Get current count on GET (returning visitor)
+      count = await getOrInitializeCounter();
+    }
+
+    const totalCount = count + baseline;
 
     return jsonResponse({
-      count,
+      count: totalCount,
       configured: true,
       includesBaseline: baseline > 0,
     });
   } catch (error) {
+    console.error("Portfolio view counter error:", error);
     return jsonResponse(
       {
-        count: null,
+        count: DEFAULT_COUNTER_BASELINE,
         configured: false,
-        error: error.message || "Portfolio view counter is unavailable.",
+        error: "Portfolio view counter encountered an error.",
       },
       503,
     );
+  }
   }
 }
